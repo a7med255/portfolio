@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ahmed Hamdy — Backend .NET Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0B0F1A; --surface: #111827; --border: #1E2D40;
+      --accent: #00C8FF; --accent2: #7B61FF;
+      --text: #E8EDF5; --muted: #6B7A99; --tag-bg: #152032; --card-bg: #0F1A2B;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.14; pointer-events: none; z-index: 0; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 14px 5vw; display: flex; align-items: center; justify-content: space-between; background: rgba(11,15,26,0.85); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--accent); font-weight: 500; letter-spacing: 0.05em; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 0.83rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero { position: relative; min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; padding: 100px 8vw 60px; z-index: 1; }
+    .hero-glow { position: absolute; top: -120px; left: -80px; width: 700px; height: 700px; background: radial-gradient(circle, rgba(0,200,255,0.07) 0%, transparent 70%); pointer-events: none; }
+    .hero-glow2 { position: absolute; bottom: -80px; right: 0; width: 500px; height: 500px; background: radial-gradient(circle, rgba(123,97,255,0.06) 0%, transparent 70%); pointer-events: none; }
+
+    .hero-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+    .hero-label::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--accent); }
+    .hero h1 { font-size: clamp(2.6rem, 5vw, 4.8rem); font-weight: 700; line-height: 1.05; margin-bottom: 22px; letter-spacing: -0.02em; }
+    .hero h1 span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-desc { font-size: 1rem; color: var(--muted); max-width: 520px; margin-bottom: 34px; line-height: 1.8; }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* PHOTO */
+    .hero-photo-wrap { position: relative; display: flex; justify-content: center; align-items: center; }
+    .hero-photo-ring { position: relative; width: 340px; height: 340px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); padding: 3px; }
+    .hero-photo-inner { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; background: var(--card-bg); }
+    .hero-photo-inner img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: grayscale(10%); }
+    .hero-photo-ring::before { content: ''; position: absolute; inset: -12px; border-radius: 50%; border: 1px dashed rgba(0,200,255,0.25); animation: spin 30s linear infinite; }
+    .hero-photo-ring::after { content: ''; position: absolute; inset: -24px; border-radius: 50%; border: 1px dashed rgba(123,97,255,0.15); animation: spin 50s linear infinite reverse; }
+    .badge { position: absolute; bottom: 18px; right: -10px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 10px 16px; font-size: 0.78rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; display: flex; align-items: center; gap: 8px; }
+    .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e; }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    /* BUTTONS */
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #000; padding: 12px 26px; border-radius: 6px; font-weight: 600; font-size: 0.88rem; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.2s, transform 0.2s; }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border); color: var(--text); padding: 12px 26px; border-radius: 6px; font-weight: 500; font-size: 0.88rem; text-decoration: none; transition: border-color 0.2s, transform 0.2s; }
+    .btn-ghost:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+    /* STATS */
+    .stats { position: relative; z-index: 1; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 32px 8vw; display: flex; gap: 0; overflow-x: auto; }
+    .stat { flex: 1; min-width: 150px; padding: 0 32px; border-right: 1px solid var(--border); }
+    .stat:first-child { padding-left: 0; }
+    .stat:last-child { border-right: none; }
+    .stat-num { font-size: 2rem; font-weight: 700; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+    .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+
+    /* SECTIONS */
+    section { position: relative; z-index: 1; padding: 80px 8vw; }
+    .section-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent); letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 12px; }
+    .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; margin-bottom: 46px; letter-spacing: -0.01em; }
+
+    /* PROJECTS */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
+    .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 26px; transition: border-color 0.25s, transform 0.25s; cursor: default; }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+    .project-badge { display: inline-block; background: rgba(0,200,255,0.1); color: var(--accent); font-size: 0.68rem; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.1em; padding: 3px 10px; border-radius: 4px; margin-bottom: 12px; }
+    .project-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+    .project-card p { color: var(--muted); font-size: 0.87rem; line-height: 1.7; margin-bottom: 16px; }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { background: var(--tag-bg); color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; padding: 3px 10px; border-radius: 4px; border: 1px solid var(--border); }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .skill-group { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; }
+    .skill-group-title { font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; color: var(--accent2); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 13px; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 7px; }
+
+    /* EXPERIENCE */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 0; width: 1px; background: var(--border); }
+    .timeline-item { position: relative; margin-bottom: 38px; }
+    .timeline-item::before { content: ''; position: absolute; left: -32px; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+    .timeline-date { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent); margin-bottom: 5px; }
+    .timeline-role { font-size: 1rem; font-weight: 600; margin-bottom: 3px; }
+    .timeline-company { font-size: 0.83rem; color: var(--muted); margin-bottom: 11px; }
+    .timeline-desc { font-size: 0.87rem; color: var(--muted); line-height: 1.7; }
+
+    /* ACHIEVEMENTS */
+    .achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+    .achievement-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; display: flex; gap: 14px; align-items: flex-start; }
+    .ach-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+    .ach-title { font-size: 0.93rem; font-weight: 600; margin-bottom: 5px; }
+    .ach-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+
+    /* CONTACT */
+    .contact-wrapper { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 48px; display: flex; gap: 48px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .contact-text h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; }
+    .contact-text p { color: var(--muted); font-size: 0.93rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 12px; }
+    .contact-link { display: flex; align-items: center; gap: 12px; color: var(--text); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+    .contact-link:hover { color: var(--accent); }
+    .contact-link-icon { width: 36px; height: 36px; background: var(--tag-bg); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
+
+    /* FOOTER */
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 22px 8vw; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.76rem; color: var(--muted); }
+
+    /* SCROLL REVEAL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 120px; text-align: center; }
+      .hero-desc { max-width: 100%; }
+      .hero-cta { justify-content: center; }
+      .hero-label { justify-content: center; }
+      .hero-photo-wrap { order: -1; }
+      .hero-photo-ring { width: 260px; height: 260px; }
+    }
+    @media (max-width: 640px) {
+      .stats { flex-direction: column; gap: 20px; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); padding: 0 0 18px; }
+      .stat:last-child { border-bottom: none; }
+      .nav-links { display: none; }
+      .contact-wrapper { padding: 28px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Ahmed Hamdy Mohammed Mansour<span style="color:var(--muted)">_</span></div>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li> 
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  
+
+  <div class="hero-inner">
+    <div class="hero-label">Backend .NET Developer</div>
+    <h1>Ahmed<br><span>Hamdy</span><br>Mansour</h1>
+    <p class="hero-desc">Building robust, scalable backend systems with ASP.NET Core. Passionate about clean architecture, API design, and solving real problems through code.</p>
+    <div class="hero-cta">
+      <a href="mailto:ahmedhamdymansour25@gmail.com" class="btn-primary">✉ Get in Touch</a>
+      <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+      <a href="https://github.com/a7med255" target="_blank" class="btn-ghost">GitHub ↗</a>
+    </div>
+  </div>
+
+  <div class="hero-photo-wrap">
+    <div class="hero-photo-ring">
+      <div class="hero-photo-inner">
+        <img src="https://res.cloudinary.com/deoayl2hl/image/upload/v1781381918/Ahmed_t9v4sa.jpg" alt="Ahmed Hamdy Mansour" />
+      </div>
+    </div>
+    <div class="badge">
+      <div class="badge-dot"></div>
+      Open to Work
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat reveal"><div class="stat-num">3+</div><div class="stat-label">Years Building</div></div>
+  <div class="stat reveal"><div class="stat-num">20+</div><div class="stat-label">API Endpoints / Project</div></div>
+  <div class="stat reveal"><div class="stat-num">200+</div><div class="stat-label">Coding Problems Solved</div></div>
+  <div class="stat reveal"><div class="stat-num">ICPC</div><div class="stat-label">Qualifications 2022 & 2023</div></div>
+</div>
+
+<section id="projects">
+  <div class="section-eyebrow reveal">Work</div>
+  <h2 class="section-title reveal">Featured Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <span class="project-badge"><a href="https://lungora.runasp.net/swagger/index.html" > LIVE · 2025 </a></span>
+      <span class="project-badge"> <a href="https://github.com/a7med255/Lungora">Github</a> </span>
+      <h3>Lungora — Healthcare Platform</h3>
+      <p>Graduation project. Smart healthcare platform with nearby doctor search, AI-based chest X-ray classification, user management, and healthcare articles.</p>
+      <div class="tech-tags"><span class="tag">ASP.NET Core</span><span class="tag">Web API</span><span class="tag">EF Core</span><span class="tag">SQL Server</span><span class="tag">JWT</span><span class="tag">AI Integration</span><span class="tag">Geolocation</span></div>
+    </div>
+    <div class="project-card reveal">
+      <span class="project-badge"><a href="https://shopproject.runasp.net/swagger/index.html" > LIVE · 2025 </a></span> 
+      <span class="project-badge"><a href="https://github.com/a7med255/ShopProject" > GitHub </a></span>      
+      <h3>Shop — E-Commerce API</h3>
+      <p>Full-featured e-commerce RESTful API with authentication, product management, order processing, Stripe payments, and Cloudinary media handling.</p>
+      <div class="tech-tags"><span class="tag">ASP.NET Core</span><span class="tag">EF Core</span><span class="tag">JWT</span><span class="tag">Google OAuth</span><span class="tag">Stripe</span><span class="tag">Cloudinary</span><span class="tag">MySQL</span></div>
+    </div>
+    <div class="project-card reveal">
+      <span class="project-badge">2024</span>
+       <span class="project-badge"><a href="https://github.com/a7med255/ProjectLapShop"> GitHub</a></span>
+      <h3>Lap Shop — Laptop E-Commerce</h3>
+      <p>Online laptop store supporting 1,000+ products with secure auth, product and order management, and SQL Views across 30+ database tables.</p>
+      <div class="tech-tags"><span class="tag">ASP.NET Core MVC</span><span class="tag">EF Core</span><span class="tag">SQL Server</span><span class="tag">Caching</span><span class="tag">DI</span></div>
+    </div>
+    <div class="project-card reveal">
+      <span class="project-badge">INTERNSHIP · 2025</span>
+      <h3>Community Management API</h3>
+      <p>Built at KGE Technologies. JWT auth, social login, role management, events and posts modules. Optimized for performance and security.</p>
+      <div class="tech-tags"><span class="tag">ASP.NET Core</span><span class="tag">JWT</span><span class="tag">MySQL</span><span class="tag">EF Core</span><span class="tag">RBAC</span><span class="tag">DBeaver</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-eyebrow reveal">Toolkit</div>
+  <h2 class="section-title reveal">Skills & Technologies</h2>
+  <div class="skills-grid">
+    <div class="skill-group reveal"><div class="skill-group-title">Languages</div><div class="skill-list"><span class="tag">C#</span><span class="tag">Java</span><span class="tag">C++</span></div></div>
+    <div class="skill-group reveal"><div class="skill-group-title">Backend</div><div class="skill-list"><span class="tag">ASP.NET Core MVC</span><span class="tag">ASP.NET Core Web API</span><span class="tag">Entity Framework Core</span><span class="tag">LINQ</span></div></div>
+    <div class="skill-group reveal"><div class="skill-group-title">Architecture</div><div class="skill-list"><span class="tag">SOLID</span><span class="tag">Design Patterns</span><span class="tag">Onion Architecture</span><span class="tag">Repository Pattern</span><span class="tag">Unit of Work</span></div></div>
+    <div class="skill-group reveal"><div class="skill-group-title">Auth & Security</div><div class="skill-list"><span class="tag">JWT</span><span class="tag">OAuth 2.0</span><span class="tag">ASP.NET Identity</span><span class="tag">RBAC</span></div></div>
+    <div class="skill-group reveal"><div class="skill-group-title">Databases</div><div class="skill-list"><span class="tag">SQL Server</span><span class="tag">MySQL</span><span class="tag">PostgreSQL</span></div></div>
+    <div class="skill-group reveal"><div class="skill-group-title">API & Tools</div><div class="skill-list"><span class="tag">RESTful APIs</span><span class="tag">Swagger/OpenAPI</span><span class="tag">Postman</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Stripe</span><span class="tag">Cloudinary</span><span class="tag">Serilog</span></div></div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-eyebrow reveal">Journey</div>
+  <h2 class="section-title reveal">Experience & Education</h2>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-date">Jul 2025 – Nov 2025</div>
+      <div class="timeline-role">.NET Core Backend Developer — Intern</div>
+      <div class="timeline-company">KGE Technologies PVT LTD · Remote</div>
+      <div class="timeline-desc">Developed a Community Management API with JWT auth, social login, role management, events and posts modules. Optimized APIs for performance and security using EF Core and MySQL.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-date">2023</div>
+      <div class="timeline-role">ITI .NET Training Program</div>
+      <div class="timeline-company">Information Technology Institute · 1-Month Intensive</div>
+      <div class="timeline-desc">Covered Web MVC with .NET Core, LINQ, EF Core, and SQL optimization. Built mini projects with real-world use cases in web application development.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-date">2021 – 2025</div>
+      <div class="timeline-role">Bachelor's in Computer Science</div>
+      <div class="timeline-company">Menoufia University · Graduated July 2025</div>
+      <div class="timeline-desc">Four-year CS degree focused on software engineering, algorithms, and data structures. Graduation project: Lungora — AI-powered healthcare platform.</div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-eyebrow reveal">Highlights</div>
+  <h2 class="section-title reveal">Achievements</h2>
+  <div class="achievements-grid">
+    <div class="achievement-card reveal"><div class="ach-icon">🏆</div><div><div class="ach-title">ICPC Qualifications — 2022 & 2023</div><div class="ach-desc">Participated in ICPC Qualifications solving complex algorithmic problems under time pressure in two consecutive years.</div></div></div>
+    <div class="achievement-card reveal"><div class="ach-icon">⚡</div><div><div class="ach-title">200+ Coding Problems Solved</div><div class="ach-desc">Active on Codeforces, LeetCode, VJudge, and HackerRank — consistently sharpening algorithmic thinking and problem-solving skills.</div></div></div>
+    <div class="achievement-card reveal"><div class="ach-icon">🎓</div><div><div class="ach-title">ITI .NET Training — 2023</div><div class="ach-desc">Completed a one-month intensive course on Web MVC, LINQ, EF Core, and SQL optimization at the Information Technology Institute.</div></div></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-wrapper reveal">
+    <div class="contact-text">
+      <h2>Let's build something.</h2>
+      <p>Open to full-time roles, freelance projects,<br>and interesting collaborations.</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:ahmedhamdymansour25@gmail.com" class="contact-link"><div class="contact-link-icon">✉</div>ahmedhamdymansour25@gmail.com</a>
+      <a href="tel:+201017373711" class="contact-link"><div class="contact-link-icon">📞</div>+20 101 737 3711</a>
+      <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" class="contact-link"><div class="contact-link-icon">in</div>linkedin.com/in/ahmed-hamdy5</a>
+      <a href="https://github.com/a7med255" target="_blank" class="contact-link"><div class="contact-link-icon">⌥</div>GitHub Profile</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Ahmed Hamdy Mansour · Backend .NET Developer</span>
+  <span style="font-family:'JetBrains Mono',monospace;">Cairo, Egypt</span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Typing animation for hero label
+  const label = document.querySelector('.hero-label');
+  if (label) {
+    const text = label.textContent.trim();
+    label.textContent = '';
+    label.style.display = 'flex';
+    const before = document.createElement('span');
+    before.style.cssText = 'display:inline-block;width:28px;height:1px;background:var(--accent);margin-right:10px;flex-shrink:0';
+    label.appendChild(before);
+    const span = document.createElement('span');
+    label.appendChild(span);
+    let i = 0;
+    function type() { if (i < text.length) { span.textContent += text[i++]; setTimeout(type, 60); } }
+    setTimeout(type, 800);
+  }
+
+  // Smooth number counter for stats
+  function animateCount(el, target, suffix = '') {
+    let current = 0;
+    const isNum = !isNaN(target);
+    if (!isNum) { el.textContent = target + suffix; return; }
+    const step = Math.ceil(target / 40);
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = current + suffix;
+      if (current >= target) clearInterval(timer);
+    }, 40);
+  }
+
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const num = e.target.querySelector('.stat-num');
+        const raw = num.textContent;
+        if (raw === '3+') animateCount(num, 3, '+');
+        else if (raw === '20+') animateCount(num, 20, '+');
+        else if (raw === '200+') animateCount(num, 200, '+');
+        statObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat').forEach(s => statObserver.observe(s));
+
+  // Project card tilt effect
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `translateY(-5px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg)`;
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  });
+</script>
+</body>
+</html>
