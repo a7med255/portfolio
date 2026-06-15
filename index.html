@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ahmed Hamdy — Backend .NET Developer</title>
+  <title>Ahmed Hamdy Mohammed Mansour — Backend .NET Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -20,9 +20,11 @@
     /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 14px 5vw; display: flex; align-items: center; justify-content: space-between; background: rgba(11,15,26,0.85); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
     .nav-logo { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--accent); font-weight: 500; letter-spacing: 0.05em; }
-    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
     .nav-links a { font-size: 0.83rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
+    .nav-cv { font-size: 0.78rem !important; color: var(--accent) !important; border: 1px solid var(--accent); padding: 5px 14px; border-radius: 5px; transition: background 0.2s, color 0.2s !important; }
+    .nav-cv:hover { background: var(--accent); color: #000 !important; }
 
     /* HERO */
     .hero { position: relative; min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; padding: 100px 8vw 60px; z-index: 1; }
@@ -47,11 +49,19 @@
     .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e; }
     @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
+    /* SOCIAL ICONS */
+    .hero-socials { display: flex; gap: 10px; margin-top: 18px; }
+    .social-icon { width: 38px; height: 38px; border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--muted); transition: border-color 0.2s, color 0.2s, transform 0.2s; }
+    .social-icon:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+    .social-icon svg { width: 18px; height: 18px; fill: currentColor; }
+
     /* BUTTONS */
     .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #000; padding: 12px 26px; border-radius: 6px; font-weight: 600; font-size: 0.88rem; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.2s, transform 0.2s; }
     .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
     .btn-ghost { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border); color: var(--text); padding: 12px 26px; border-radius: 6px; font-weight: 500; font-size: 0.88rem; text-decoration: none; transition: border-color 0.2s, transform 0.2s; }
     .btn-ghost:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .btn-cv { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--accent2); color: var(--accent2); padding: 12px 26px; border-radius: 6px; font-weight: 500; font-size: 0.88rem; text-decoration: none; transition: background 0.2s, color 0.2s, transform 0.2s; }
+    .btn-cv:hover { background: var(--accent2); color: #fff; transform: translateY(-2px); }
 
     /* STATS */
     .stats { position: relative; z-index: 1; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 32px 8vw; display: flex; gap: 0; overflow-x: auto; }
@@ -70,7 +80,9 @@
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
     .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 26px; transition: border-color 0.25s, transform 0.25s; cursor: default; }
     .project-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-    .project-badge { display: inline-block; background: rgba(0,200,255,0.1); color: var(--accent); font-size: 0.68rem; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.1em; padding: 3px 10px; border-radius: 4px; margin-bottom: 12px; }
+    .project-badge { display: inline-block; background: rgba(0,200,255,0.1); color: var(--accent); font-size: 0.68rem; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.1em; padding: 3px 10px; border-radius: 4px; margin-bottom: 12px; margin-right: 4px; }
+    .project-badge a { color: var(--accent); text-decoration: none; }
+    .project-badge a:hover { text-decoration: underline; }
     .project-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
     .project-card p { color: var(--muted); font-size: 0.87rem; line-height: 1.7; margin-bottom: 16px; }
     .tech-tags { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -108,8 +120,19 @@
     .contact-link:hover { color: var(--accent); }
     .contact-link-icon { width: 36px; height: 36px; background: var(--tag-bg); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
 
+    /* CV BANNER */
+    .cv-banner { position: relative; z-index: 1; background: linear-gradient(135deg, rgba(0,200,255,0.08), rgba(123,97,255,0.08)); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 28px 8vw; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .cv-banner-text { font-size: 1rem; font-weight: 600; }
+    .cv-banner-sub { font-size: 0.83rem; color: var(--muted); margin-top: 3px; }
+    .btn-cv-big { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; padding: 13px 32px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: opacity 0.2s, transform 0.2s; box-shadow: 0 0 20px rgba(0,200,255,0.2); }
+    .btn-cv-big:hover { opacity: 0.88; transform: translateY(-2px); }
+
     /* FOOTER */
     footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 22px 8vw; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.76rem; color: var(--muted); }
+    .footer-socials { display: flex; gap: 10px; }
+    .footer-social { width: 30px; height: 30px; border: 1px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--muted); transition: border-color 0.2s, color 0.2s; }
+    .footer-social:hover { border-color: var(--accent); color: var(--accent); }
+    .footer-social svg { width: 14px; height: 14px; fill: currentColor; }
 
     /* SCROLL REVEAL */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
@@ -123,6 +146,7 @@
       .hero-label { justify-content: center; }
       .hero-photo-wrap { order: -1; }
       .hero-photo-ring { width: 260px; height: 260px; }
+      .hero-socials { justify-content: center; }
     }
     @media (max-width: 640px) {
       .stats { flex-direction: column; gap: 20px; }
@@ -137,19 +161,20 @@
 <body>
 
 <nav>
-  <div class="nav-logo">Ahmed Hamdy Mohammed Mansour<span style="color:var(--muted)">_</span></div>
+  <div class="nav-logo">ahmed.hamdy<span style="color:var(--muted)">_</span></div>
   <ul class="nav-links">
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li> 
+    <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="https://drive.google.com/file/d/1NEF3r1WuJpxackJ_M4BbwqHzTf2ie3i0/view" target="_blank" class="nav-cv">↓ Download CV</a></li>
   </ul>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
-  
 
   <div class="hero-inner">
     <div class="hero-label">Backend .NET Developer</div>
@@ -159,6 +184,22 @@
       <a href="mailto:ahmedhamdymansour25@gmail.com" class="btn-primary">✉ Get in Touch</a>
       <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" class="btn-ghost">LinkedIn ↗</a>
       <a href="https://github.com/a7med255" target="_blank" class="btn-ghost">GitHub ↗</a>
+      <a href="https://drive.google.com/file/d/1NEF3r1WuJpxackJ_M4BbwqHzTf2ie3i0/view" target="_blank" class="btn-cv">↓ Download CV</a>
+    </div>
+    <!-- Social Icons Row -->
+    <div class="hero-socials">
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" class="social-icon" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <!-- GitHub -->
+      <a href="https://github.com/a7med255" target="_blank" class="social-icon" title="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/ahmed.mans25" target="_blank" class="social-icon" title="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
     </div>
   </div>
 
@@ -175,6 +216,7 @@
   </div>
 </section>
 
+<!-- STATS -->
 <div class="stats">
   <div class="stat reveal"><div class="stat-num">3+</div><div class="stat-label">Years Building</div></div>
   <div class="stat reveal"><div class="stat-num">20+</div><div class="stat-label">API Endpoints / Project</div></div>
@@ -182,27 +224,40 @@
   <div class="stat reveal"><div class="stat-num">ICPC</div><div class="stat-label">Qualifications 2022 & 2023</div></div>
 </div>
 
+<!-- CV BANNER -->
+<div class="cv-banner reveal">
+  <div>
+    <div class="cv-banner-text">📄 Want to know more about my experience?</div>
+    <div class="cv-banner-sub">Download my full CV — updated July 2025</div>
+  </div>
+  <a href="https://drive.google.com/file/d/1NEF3r1WuJpxackJ_M4BbwqHzTf2ie3i0/view" target="_blank" class="btn-cv-big">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download CV
+  </a>
+</div>
+
+<!-- PROJECTS -->
 <section id="projects">
   <div class="section-eyebrow reveal">Work</div>
   <h2 class="section-title reveal">Featured Projects</h2>
   <div class="projects-grid">
     <div class="project-card reveal">
-      <span class="project-badge"><a href="https://lungora.runasp.net/swagger/index.html" > LIVE · 2025 </a></span>
-      <span class="project-badge"> <a href="https://github.com/a7med255/Lungora">Github</a> </span>
+      <span class="project-badge"><a href="https://lungora.runasp.net/swagger/index.html" target="_blank">LIVE · 2025</a></span>
+      <span class="project-badge"><a href="https://github.com/a7med255/Lungora" target="_blank">GitHub ↗</a></span>
       <h3>Lungora — Healthcare Platform</h3>
       <p>Graduation project. Smart healthcare platform with nearby doctor search, AI-based chest X-ray classification, user management, and healthcare articles.</p>
       <div class="tech-tags"><span class="tag">ASP.NET Core</span><span class="tag">Web API</span><span class="tag">EF Core</span><span class="tag">SQL Server</span><span class="tag">JWT</span><span class="tag">AI Integration</span><span class="tag">Geolocation</span></div>
     </div>
     <div class="project-card reveal">
-      <span class="project-badge"><a href="https://shopproject.runasp.net/swagger/index.html" > LIVE · 2025 </a></span> 
-      <span class="project-badge"><a href="https://github.com/a7med255/ShopProject" > GitHub </a></span>      
+      <span class="project-badge"><a href="https://shopproject.runasp.net/swagger/index.html" target="_blank">LIVE · 2025</a></span>
+      <span class="project-badge"><a href="https://github.com/a7med255/ShopProject" target="_blank">GitHub ↗</a></span>
       <h3>Shop — E-Commerce API</h3>
       <p>Full-featured e-commerce RESTful API with authentication, product management, order processing, Stripe payments, and Cloudinary media handling.</p>
       <div class="tech-tags"><span class="tag">ASP.NET Core</span><span class="tag">EF Core</span><span class="tag">JWT</span><span class="tag">Google OAuth</span><span class="tag">Stripe</span><span class="tag">Cloudinary</span><span class="tag">MySQL</span></div>
     </div>
     <div class="project-card reveal">
       <span class="project-badge">2024</span>
-       <span class="project-badge"><a href="https://github.com/a7med255/ProjectLapShop"> GitHub</a></span>
+      <span class="project-badge"><a href="https://github.com/a7med255/ProjectLapShop" target="_blank">GitHub ↗</a></span>
       <h3>Lap Shop — Laptop E-Commerce</h3>
       <p>Online laptop store supporting 1,000+ products with secure auth, product and order management, and SQL Views across 30+ database tables.</p>
       <div class="tech-tags"><span class="tag">ASP.NET Core MVC</span><span class="tag">EF Core</span><span class="tag">SQL Server</span><span class="tag">Caching</span><span class="tag">DI</span></div>
@@ -216,6 +271,7 @@
   </div>
 </section>
 
+<!-- SKILLS -->
 <section id="skills" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
   <div class="section-eyebrow reveal">Toolkit</div>
   <h2 class="section-title reveal">Skills & Technologies</h2>
@@ -229,6 +285,7 @@
   </div>
 </section>
 
+<!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-eyebrow reveal">Journey</div>
   <h2 class="section-title reveal">Experience & Education</h2>
@@ -254,6 +311,7 @@
   </div>
 </section>
 
+<!-- ACHIEVEMENTS -->
 <section style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
   <div class="section-eyebrow reveal">Highlights</div>
   <h2 class="section-title reveal">Achievements</h2>
@@ -264,6 +322,7 @@
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <div class="contact-wrapper reveal">
     <div class="contact-text">
@@ -274,24 +333,46 @@
       <a href="mailto:ahmedhamdymansour25@gmail.com" class="contact-link"><div class="contact-link-icon">✉</div>ahmedhamdymansour25@gmail.com</a>
       <a href="tel:+201017373711" class="contact-link"><div class="contact-link-icon">📞</div>+20 101 737 3711</a>
       <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" class="contact-link"><div class="contact-link-icon">in</div>linkedin.com/in/ahmed-hamdy5</a>
-      <a href="https://github.com/a7med255" target="_blank" class="contact-link"><div class="contact-link-icon">⌥</div>GitHub Profile</a>
+      <a href="https://github.com/a7med255" target="_blank" class="contact-link">
+        <div class="contact-link-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </div>github.com/a7med255
+      </a>
+      <a href="https://www.facebook.com/ahmed.mans25" target="_blank" class="contact-link">
+        <div class="contact-link-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </div>facebook.com/ahmed.mans25
+      </a>
+      <a href="https://drive.google.com/file/d/1NEF3r1WuJpxackJ_M4BbwqHzTf2ie3i0/view" target="_blank" class="contact-link">
+        <div class="contact-link-icon">📄</div>Download CV
+      </a>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <span>Ahmed Hamdy Mansour · Backend .NET Developer</span>
+  <div class="footer-socials">
+    <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" class="footer-social" title="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <a href="https://github.com/a7med255" target="_blank" class="footer-social" title="GitHub">
+      <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+    <a href="https://www.facebook.com/ahmed.mans25" target="_blank" class="footer-social" title="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+  </div>
   <span style="font-family:'JetBrains Mono',monospace;">Cairo, Egypt</span>
 </footer>
 
 <script>
-  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Typing animation for hero label
   const label = document.querySelector('.hero-label');
   if (label) {
     const text = label.textContent.trim();
@@ -307,11 +388,9 @@
     setTimeout(type, 800);
   }
 
-  // Smooth number counter for stats
   function animateCount(el, target, suffix = '') {
     let current = 0;
-    const isNum = !isNaN(target);
-    if (!isNum) { el.textContent = target + suffix; return; }
+    if (isNaN(target)) { el.textContent = target + suffix; return; }
     const step = Math.ceil(target / 40);
     const timer = setInterval(() => {
       current = Math.min(current + step, target);
@@ -334,7 +413,6 @@
   }, { threshold: 0.5 });
   document.querySelectorAll('.stat').forEach(s => statObserver.observe(s));
 
-  // Project card tilt effect
   document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
