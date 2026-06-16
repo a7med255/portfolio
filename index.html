@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ahmed Hamdy Mohammed Mansour — Backend .NET Developer</title>
+  <title>Ahmed Hamdy — Backend .NET Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -24,7 +24,7 @@
     .nav-links a { font-size: 0.83rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
     .nav-cv { font-size: 0.78rem !important; color: var(--accent) !important; border: 1px solid var(--accent); padding: 5px 14px; border-radius: 5px; transition: background 0.2s, color 0.2s !important; }
-    .nav-cv:hover { background: var(--accent); color: #000 !important; }
+    .nav-cv:hover { background: var(--accent) !important; color: #000 !important; }
 
     /* HERO */
     .hero { position: relative; min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; padding: 100px 8vw 60px; z-index: 1; }
@@ -36,35 +36,98 @@
     .hero h1 { font-size: clamp(2.6rem, 5vw, 4.8rem); font-weight: 700; line-height: 1.05; margin-bottom: 22px; letter-spacing: -0.02em; }
     .hero h1 span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .hero-desc { font-size: 1rem; color: var(--muted); max-width: 520px; margin-bottom: 34px; line-height: 1.8; }
-    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 
     /* PHOTO */
     .hero-photo-wrap { position: relative; display: flex; justify-content: center; align-items: center; }
     .hero-photo-ring { position: relative; width: 340px; height: 340px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); padding: 3px; }
     .hero-photo-inner { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; background: var(--card-bg); }
-    .hero-photo-inner img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: grayscale(10%); }
+    .hero-photo-inner img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(10%); }
     .hero-photo-ring::before { content: ''; position: absolute; inset: -12px; border-radius: 50%; border: 1px dashed rgba(0,200,255,0.25); animation: spin 30s linear infinite; }
     .hero-photo-ring::after { content: ''; position: absolute; inset: -24px; border-radius: 50%; border: 1px dashed rgba(123,97,255,0.15); animation: spin 50s linear infinite reverse; }
-    .badge { position: absolute; bottom: 18px; right: -10px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 10px 16px; font-size: 0.78rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; display: flex; align-items: center; gap: 8px; }
-    .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e; }
     @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    /* ── BADGE INTERACTIVE ── */
+    .badge-wrap { position: absolute; bottom: 10px; right: -20px; display: flex; flex-direction: column; gap: 10px; }
+
+    .badge {
+      background: rgba(15,26,43,0.92);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 16px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      display: flex; align-items: center; gap: 10px;
+      cursor: default;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      user-select: none;
+      min-width: 160px;
+    }
+    .badge:hover { border-color: var(--accent); transform: translateX(4px); box-shadow: -4px 0 18px rgba(0,200,255,0.12); }
+
+    .badge-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .badge-dot.green { background: #22c55e; box-shadow: 0 0 8px #22c55e; animation: pulse-green 2s ease-in-out infinite; }
+    .badge-dot.blue  { background: var(--accent); box-shadow: 0 0 8px var(--accent); animation: pulse-blue 2.4s ease-in-out infinite; }
+    .badge-dot.purple{ background: var(--accent2); box-shadow: 0 0 8px var(--accent2); }
+
+    @keyframes pulse-green { 0%,100%{ box-shadow:0 0 6px #22c55e; } 50%{ box-shadow:0 0 14px #22c55e; } }
+    @keyframes pulse-blue  { 0%,100%{ box-shadow:0 0 6px var(--accent); } 50%{ box-shadow:0 0 16px var(--accent); } }
+
+    .badge-text { display: flex; flex-direction: column; line-height: 1.3; }
+    .badge-title { color: var(--text); font-size: 0.73rem; font-weight: 500; }
+    .badge-sub { color: var(--muted); font-size: 0.65rem; margin-top: 1px; }
+
+    /* badge icon */
+    .badge-icon { font-size: 1rem; flex-shrink: 0; }
+
+    /* CV DOWNLOAD BUTTON */
+    .btn-cv-download {
+      position: relative;
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent;
+      border: 1px solid var(--accent2);
+      color: var(--accent2);
+      padding: 12px 26px;
+      border-radius: 8px;
+      font-weight: 600; font-size: 0.88rem;
+      text-decoration: none;
+      overflow: hidden;
+      transition: color 0.3s, transform 0.2s;
+      cursor: pointer;
+    }
+    .btn-cv-download::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 0;
+    }
+    .btn-cv-download:hover::before { opacity: 1; }
+    .btn-cv-download:hover { color: #fff; transform: translateY(-2px); border-color: transparent; }
+    .btn-cv-download span, .btn-cv-download svg { position: relative; z-index: 1; }
+    .btn-cv-download .dl-arrow { transition: transform 0.3s; }
+    .btn-cv-download:hover .dl-arrow { transform: translateY(3px); }
 
     /* SOCIAL ICONS */
     .hero-socials { display: flex; gap: 10px; margin-top: 18px; }
-    .social-icon { width: 38px; height: 38px; border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--muted); transition: border-color 0.2s, color 0.2s, transform 0.2s; }
-    .social-icon:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
-    .social-icon svg { width: 18px; height: 18px; fill: currentColor; }
+    .social-icon { width: 38px; height: 38px; border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--muted); transition: border-color 0.2s, color 0.2s, transform 0.2s, background 0.2s; }
+    .social-icon:hover { transform: translateY(-3px); }
+    .social-icon.li:hover  { border-color:#0A66C2; color:#0A66C2; background:rgba(10,102,194,0.08); }
+    .social-icon.gh:hover  { border-color:#e8edf5; color:#e8edf5; background:rgba(232,237,245,0.08); }
+    .social-icon.fb:hover  { border-color:#1877F2; color:#1877F2; background:rgba(24,119,242,0.08); }
+    .social-icon svg { width: 17px; height: 17px; fill: currentColor; }
 
     /* BUTTONS */
-    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #000; padding: 12px 26px; border-radius: 6px; font-weight: 600; font-size: 0.88rem; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.2s, transform 0.2s; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #000; padding: 12px 26px; border-radius: 6px; font-weight: 600; font-size: 0.88rem; text-decoration: none; transition: opacity 0.2s, transform 0.2s; }
     .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
     .btn-ghost { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border); color: var(--text); padding: 12px 26px; border-radius: 6px; font-weight: 500; font-size: 0.88rem; text-decoration: none; transition: border-color 0.2s, transform 0.2s; }
     .btn-ghost:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .btn-cv { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--accent2); color: var(--accent2); padding: 12px 26px; border-radius: 6px; font-weight: 500; font-size: 0.88rem; text-decoration: none; transition: background 0.2s, color 0.2s, transform 0.2s; }
-    .btn-cv:hover { background: var(--accent2); color: #fff; transform: translateY(-2px); }
 
     /* STATS */
-    .stats { position: relative; z-index: 1; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 32px 8vw; display: flex; gap: 0; overflow-x: auto; }
+    .stats { position: relative; z-index: 1; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 32px 8vw; display: flex; }
     .stat { flex: 1; min-width: 150px; padding: 0 32px; border-right: 1px solid var(--border); }
     .stat:first-child { padding-left: 0; }
     .stat:last-child { border-right: none; }
@@ -78,27 +141,30 @@
 
     /* PROJECTS */
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
-    .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 26px; transition: border-color 0.25s, transform 0.25s; cursor: default; }
-    .project-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-    .project-badge { display: inline-block; background: rgba(0,200,255,0.1); color: var(--accent); font-size: 0.68rem; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.1em; padding: 3px 10px; border-radius: 4px; margin-bottom: 12px; margin-right: 4px; }
+    .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 26px; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s; cursor: default; transform-style: preserve-3d; }
+    .project-card:hover { border-color: var(--accent); box-shadow: 0 12px 40px rgba(0,200,255,0.08); }
+    .project-badge { display: inline-block; background: rgba(0,200,255,0.1); color: var(--accent); font-size: 0.68rem; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.1em; padding: 3px 10px; border-radius: 4px; margin-bottom: 10px; margin-right: 4px; }
     .project-badge a { color: var(--accent); text-decoration: none; }
     .project-badge a:hover { text-decoration: underline; }
     .project-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
     .project-card p { color: var(--muted); font-size: 0.87rem; line-height: 1.7; margin-bottom: 16px; }
     .tech-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag { background: var(--tag-bg); color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; padding: 3px 10px; border-radius: 4px; border: 1px solid var(--border); }
+    .tag { background: var(--tag-bg); color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; padding: 3px 10px; border-radius: 4px; border: 1px solid var(--border); transition: border-color 0.2s, color 0.2s; }
+    .tag:hover { border-color: var(--accent); color: var(--accent); }
 
     /* SKILLS */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
-    .skill-group { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; }
+    .skill-group { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; transition: border-color 0.2s; }
+    .skill-group:hover { border-color: rgba(123,97,255,0.4); }
     .skill-group-title { font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; color: var(--accent2); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 13px; }
     .skill-list { display: flex; flex-wrap: wrap; gap: 7px; }
 
     /* EXPERIENCE */
     .timeline { position: relative; padding-left: 28px; }
-    .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 0; width: 1px; background: var(--border); }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--accent), var(--accent2), var(--border)); }
     .timeline-item { position: relative; margin-bottom: 38px; }
-    .timeline-item::before { content: ''; position: absolute; left: -32px; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+    .timeline-item::before { content: ''; position: absolute; left: -32px; top: 7px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); transition: transform 0.2s; }
+    .timeline-item:hover::before { transform: scale(1.5); }
     .timeline-date { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent); margin-bottom: 5px; }
     .timeline-role { font-size: 1rem; font-weight: 600; margin-bottom: 3px; }
     .timeline-company { font-size: 0.83rem; color: var(--muted); margin-bottom: 11px; }
@@ -106,7 +172,8 @@
 
     /* ACHIEVEMENTS */
     .achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
-    .achievement-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; display: flex; gap: 14px; align-items: flex-start; }
+    .achievement-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; display: flex; gap: 14px; align-items: flex-start; transition: border-color 0.2s, transform 0.2s; }
+    .achievement-card:hover { border-color: var(--accent2); transform: translateY(-3px); }
     .ach-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
     .ach-title { font-size: 0.93rem; font-weight: 600; margin-bottom: 5px; }
     .ach-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
@@ -116,29 +183,29 @@
     .contact-text h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; }
     .contact-text p { color: var(--muted); font-size: 0.93rem; }
     .contact-links { display: flex; flex-direction: column; gap: 12px; }
-    .contact-link { display: flex; align-items: center; gap: 12px; color: var(--text); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
-    .contact-link:hover { color: var(--accent); }
-    .contact-link-icon { width: 36px; height: 36px; background: var(--tag-bg); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
+    .contact-link { display: flex; align-items: center; gap: 12px; color: var(--text); text-decoration: none; font-size: 0.88rem; transition: color 0.2s, transform 0.2s; }
+    .contact-link:hover { color: var(--accent); transform: translateX(4px); }
+    .contact-link-icon { width: 36px; height: 36px; background: var(--tag-bg); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; }
 
     /* CV BANNER */
-    .cv-banner { position: relative; z-index: 1; background: linear-gradient(135deg, rgba(0,200,255,0.08), rgba(123,97,255,0.08)); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 28px 8vw; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .cv-banner { position: relative; z-index: 1; padding: 32px 8vw; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; background: linear-gradient(135deg, rgba(0,200,255,0.05) 0%, rgba(123,97,255,0.05) 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .cv-banner-text { font-size: 1rem; font-weight: 600; }
-    .cv-banner-sub { font-size: 0.83rem; color: var(--muted); margin-top: 3px; }
-    .btn-cv-big { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; padding: 13px 32px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: opacity 0.2s, transform 0.2s; box-shadow: 0 0 20px rgba(0,200,255,0.2); }
-    .btn-cv-big:hover { opacity: 0.88; transform: translateY(-2px); }
+    .cv-banner-sub { font-size: 0.83rem; color: var(--muted); margin-top: 4px; }
 
     /* FOOTER */
     footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 22px 8vw; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.76rem; color: var(--muted); }
     .footer-socials { display: flex; gap: 10px; }
     .footer-social { width: 30px; height: 30px; border: 1px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--muted); transition: border-color 0.2s, color 0.2s; }
     .footer-social:hover { border-color: var(--accent); color: var(--accent); }
-    .footer-social svg { width: 14px; height: 14px; fill: currentColor; }
+    .footer-social svg { width: 13px; height: 13px; fill: currentColor; }
 
     /* SCROLL REVEAL */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* RESPONSIVE */
+    /* CURSOR GLOW */
+    .cursor-glow { position: fixed; pointer-events: none; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(0,200,255,0.04) 0%, transparent 70%); transform: translate(-50%,-50%); z-index: 0; transition: left 0.1s, top 0.1s; }
+
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; padding-top: 120px; text-align: center; }
       .hero-desc { max-width: 100%; }
@@ -147,27 +214,31 @@
       .hero-photo-wrap { order: -1; }
       .hero-photo-ring { width: 260px; height: 260px; }
       .hero-socials { justify-content: center; }
+      .badge-wrap { right: 0; bottom: -10px; }
     }
     @media (max-width: 640px) {
-      .stats { flex-direction: column; gap: 20px; }
+      .stats { flex-direction: column; gap: 20px; overflow-x: unset; }
       .stat { border-right: none; border-bottom: 1px solid var(--border); padding: 0 0 18px; }
       .stat:last-child { border-bottom: none; }
       .nav-links { display: none; }
       .contact-wrapper { padding: 28px; }
+      .badge-wrap { display: none; }
     }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
   </style>
 </head>
 <body>
 
+<div class="cursor-glow" id="cursorGlow"></div>
+
 <nav>
-  <div class="nav-logo">ahmed.hamdy<span style="color:var(--muted)">_</span></div>
+  <div class="nav-logo">Ahmed Hamdy Mohammed Mansour <span style="color:var(--muted)">_</span></div>
   <ul class="nav-links">
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="https://drive.google.com/file/d/1NEF3r1WuJpxackJ_M4BbwqHzTf2ie3i0/view" target="_blank" class="nav-cv">↓ Download CV</a></li>
+    <li><a href="AhmedHamdyMansour.pdf" download class="nav-cv">↓ CV</a></li>
   </ul>
 </nav>
 
@@ -184,34 +255,53 @@
       <a href="mailto:ahmedhamdymansour25@gmail.com" class="btn-primary">✉ Get in Touch</a>
       <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" class="btn-ghost">LinkedIn ↗</a>
       <a href="https://github.com/a7med255" target="_blank" class="btn-ghost">GitHub ↗</a>
-      <a href="https://drive.google.com/file/d/1NEF3r1WuJpxackJ_M4BbwqHzTf2ie3i0/view" target="_blank" class="btn-cv">↓ Download CV</a>
+      <a href="./AhmedHamdyMansour.pdf" download class="btn-cv-download">
+        <svg class="dl-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>Download CV</span>
+      </a>
     </div>
-    <!-- Social Icons Row -->
     <div class="hero-socials">
-      <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" class="social-icon" title="LinkedIn">
+      <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" class="social-icon li" title="LinkedIn">
         <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       </a>
-      <!-- GitHub -->
-      <a href="https://github.com/a7med255" target="_blank" class="social-icon" title="GitHub">
+      <a href="https://github.com/a7med255" target="_blank" class="social-icon gh" title="GitHub">
         <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
       </a>
-      <!-- Facebook -->
-      <a href="https://www.facebook.com/ahmed.mans25" target="_blank" class="social-icon" title="Facebook">
+      <a href="https://www.facebook.com/ahmed.mans25" target="_blank" class="social-icon fb" title="Facebook">
         <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
       </a>
     </div>
   </div>
 
+  <!-- PHOTO + BADGES -->
   <div class="hero-photo-wrap">
     <div class="hero-photo-ring">
       <div class="hero-photo-inner">
         <img src="https://res.cloudinary.com/deoayl2hl/image/upload/v1781381918/Ahmed_t9v4sa.jpg" alt="Ahmed Hamdy Mansour" />
       </div>
     </div>
-    <div class="badge">
-      <div class="badge-dot"></div>
-      Open to Work
+    <div class="badge-wrap">
+      <div class="badge">
+        <div class="badge-dot green"></div>
+        <div class="badge-text">
+          <span class="badge-title">Open to Work</span>
+          <span class="badge-sub">Available now</span>
+        </div>
+      </div>
+      <div class="badge">
+        <div class="badge-icon">🎓</div>
+        <div class="badge-text">
+          <span class="badge-title">CS Graduate</span>
+          <span class="badge-sub">Menoufia Univ · 2025</span>
+        </div>
+      </div>
+      <div class="badge">
+        <div class="badge-dot blue"></div>
+        <div class="badge-text">
+          <span class="badge-title">.NET Backend</span>
+          <span class="badge-sub">3+ yrs experience</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -227,12 +317,12 @@
 <!-- CV BANNER -->
 <div class="cv-banner reveal">
   <div>
-    <div class="cv-banner-text">📄 Want to know more about my experience?</div>
-    <div class="cv-banner-sub">Download my full CV — updated July 2025</div>
+    <div class="cv-banner-text">📄 Want the full picture?</div>
+    <div class="cv-banner-sub">Download my CV — includes all experience, projects & skills · Updated 2025</div>
   </div>
-  <a href="https://drive.google.com/file/d/1NEF3r1WuJpxackJ_M4BbwqHzTf2ie3i0/view" target="_blank" class="btn-cv-big">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    Download CV
+  <a href="./AhmedHamdyMansour.pdf" download class="btn-cv-download" style="padding:14px 36px; font-size:0.92rem;">
+    <svg class="dl-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    <span>Download CV</span>
   </a>
 </div>
 
@@ -300,7 +390,7 @@
       <div class="timeline-date">2023</div>
       <div class="timeline-role">ITI .NET Training Program</div>
       <div class="timeline-company">Information Technology Institute · 1-Month Intensive</div>
-      <div class="timeline-desc">Covered Web MVC with .NET Core, LINQ, EF Core, and SQL optimization. Built mini projects with real-world use cases in web application development.</div>
+      <div class="timeline-desc">Covered Web MVC with .NET Core, LINQ, EF Core, and SQL optimization. Built mini projects with real-world use cases.</div>
     </div>
     <div class="timeline-item reveal">
       <div class="timeline-date">2021 – 2025</div>
@@ -317,8 +407,8 @@
   <h2 class="section-title reveal">Achievements</h2>
   <div class="achievements-grid">
     <div class="achievement-card reveal"><div class="ach-icon">🏆</div><div><div class="ach-title">ICPC Qualifications — 2022 & 2023</div><div class="ach-desc">Participated in ICPC Qualifications solving complex algorithmic problems under time pressure in two consecutive years.</div></div></div>
-    <div class="achievement-card reveal"><div class="ach-icon">⚡</div><div><div class="ach-title">200+ Coding Problems Solved</div><div class="ach-desc">Active on Codeforces, LeetCode, VJudge, and HackerRank — consistently sharpening algorithmic thinking and problem-solving skills.</div></div></div>
-    <div class="achievement-card reveal"><div class="ach-icon">🎓</div><div><div class="ach-title">ITI .NET Training — 2023</div><div class="ach-desc">Completed a one-month intensive course on Web MVC, LINQ, EF Core, and SQL optimization at the Information Technology Institute.</div></div></div>
+    <div class="achievement-card reveal"><div class="ach-icon">⚡</div><div><div class="ach-title">200+ Coding Problems Solved</div><div class="ach-desc">Active on Codeforces, LeetCode, VJudge, and HackerRank — consistently sharpening algorithmic and problem-solving skills.</div></div></div>
+    <div class="achievement-card reveal"><div class="ach-icon">🎓</div><div><div class="ach-title">ITI .NET Training — 2023</div><div class="ach-desc">Completed one-month intensive course on Web MVC, LINQ, EF Core, and SQL optimization at the Information Technology Institute.</div></div></div>
   </div>
 </section>
 
@@ -332,20 +422,10 @@
     <div class="contact-links">
       <a href="mailto:ahmedhamdymansour25@gmail.com" class="contact-link"><div class="contact-link-icon">✉</div>ahmedhamdymansour25@gmail.com</a>
       <a href="tel:+201017373711" class="contact-link"><div class="contact-link-icon">📞</div>+20 101 737 3711</a>
-      <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" class="contact-link"><div class="contact-link-icon">in</div>linkedin.com/in/ahmed-hamdy5</a>
-      <a href="https://github.com/a7med255" target="_blank" class="contact-link">
-        <div class="contact-link-icon">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-        </div>github.com/a7med255
-      </a>
-      <a href="https://www.facebook.com/ahmed.mans25" target="_blank" class="contact-link">
-        <div class="contact-link-icon">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        </div>facebook.com/ahmed.mans25
-      </a>
-      <a href="https://drive.google.com/file/d/1NEF3r1WuJpxackJ_M4BbwqHzTf2ie3i0/view" target="_blank" class="contact-link">
-        <div class="contact-link-icon">📄</div>Download CV
-      </a>
+      <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" class="contact-link"><div class="contact-link-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg></div>linkedin.com/in/ahmed-hamdy5</a>
+      <a href="https://github.com/a7med255" target="_blank" class="contact-link"><div class="contact-link-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div>github.com/a7med255</a>
+      <a href="https://www.facebook.com/ahmed.mans25" target="_blank" class="contact-link"><div class="contact-link-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>facebook.com/ahmed.mans25</a>
+      <a href="./AhmedHamdyMansour.pdf" download class="contact-link"><div class="contact-link-icon">📄</div>Download CV (PDF)</a>
     </div>
   </div>
 </section>
@@ -354,25 +434,28 @@
 <footer>
   <span>Ahmed Hamdy Mansour · Backend .NET Developer</span>
   <div class="footer-socials">
-    <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" class="footer-social" title="LinkedIn">
-      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-    </a>
-    <a href="https://github.com/a7med255" target="_blank" class="footer-social" title="GitHub">
-      <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-    </a>
-    <a href="https://www.facebook.com/ahmed.mans25" target="_blank" class="footer-social" title="Facebook">
-      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-    </a>
+    <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" class="footer-social"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg></a>
+    <a href="https://github.com/a7med255" target="_blank" class="footer-social"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+    <a href="https://www.facebook.com/ahmed.mans25" target="_blank" class="footer-social"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
   </div>
   <span style="font-family:'JetBrains Mono',monospace;">Cairo, Egypt</span>
 </footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
+  // Cursor glow
+  const glow = document.getElementById('cursorGlow');
+  document.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top  = e.clientY + 'px';
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+  // Typing animation
   const label = document.querySelector('.hero-label');
   if (label) {
     const text = label.textContent.trim();
@@ -385,12 +468,13 @@
     label.appendChild(span);
     let i = 0;
     function type() { if (i < text.length) { span.textContent += text[i++]; setTimeout(type, 60); } }
-    setTimeout(type, 800);
+    setTimeout(type, 700);
   }
 
+  // Counter animation
   function animateCount(el, target, suffix = '') {
-    let current = 0;
     if (isNaN(target)) { el.textContent = target + suffix; return; }
+    let current = 0;
     const step = Math.ceil(target / 40);
     const timer = setInterval(() => {
       current = Math.min(current + step, target);
@@ -398,30 +482,37 @@
       if (current >= target) clearInterval(timer);
     }, 40);
   }
-
-  const statObserver = new IntersectionObserver((entries) => {
+  const statObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        const num = e.target.querySelector('.stat-num');
-        const raw = num.textContent;
-        if (raw === '3+') animateCount(num, 3, '+');
-        else if (raw === '20+') animateCount(num, 20, '+');
-        else if (raw === '200+') animateCount(num, 200, '+');
-        statObserver.unobserve(e.target);
-      }
+      if (!e.isIntersecting) return;
+      const num = e.target.querySelector('.stat-num');
+      const raw = num.textContent;
+      if (raw === '3+') animateCount(num, 3, '+');
+      else if (raw === '20+') animateCount(num, 20, '+');
+      else if (raw === '200+') animateCount(num, 200, '+');
+      statObs.unobserve(e.target);
     });
   }, { threshold: 0.5 });
-  document.querySelectorAll('.stat').forEach(s => statObserver.observe(s));
+  document.querySelectorAll('.stat').forEach(s => statObs.observe(s));
 
+  // 3D card tilt
   document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      card.style.transform = `translateY(-5px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg)`;
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - 0.5;
+      const y = (e.clientY - r.top)  / r.height - 0.5;
+      card.style.transform = `perspective(600px) translateY(-5px) rotateX(${-y*7}deg) rotateY(${x*7}deg)`;
     });
     card.addEventListener('mouseleave', () => { card.style.transform = ''; });
   });
+
+  // Badge hover sound-like ripple (visual only)
+  document.querySelectorAll('.badge').forEach(b => {
+    b.addEventListener('mouseenter', () => {
+      b.style.boxShadow = '0 0 0 1px rgba(0,200,255,0.15), 0 4px 20px rgba(0,200,255,0.1)';
+    });
+    b.addEventListener('mouseleave', () => { b.style.boxShadow = ''; });
+  });
 </script>
 </body>
-</html>
+</html> 
