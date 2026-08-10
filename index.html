@@ -3,9 +3,17 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Ahmed Hamdy Mansour — Backend .NET Developer from Cairo, Egypt. ASP.NET Core, Web API, EF Core, Clean Architecture."/>
-  <title>Ahmed Hamdy — Backend .NET Developer</title>
+  <meta name="description" content="Ahmed Hamdy Mansour — Software Engineer and Dynamics 365 Finance &amp; Operations Developer specializing in X++, ERP development, D365 F&amp;O customization, and .NET backend engineering."/>
+  <title>Ahmed Hamdy Mansour | Dynamics 365 F&amp;O Developer</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:title" content="Ahmed Hamdy Mansour | Dynamics 365 F&amp;O Developer">
+  <meta property="og:description" content="Software Engineer and Dynamics 365 Finance &amp; Operations Developer specializing in X++, ERP development, D365 F&amp;O customization, and .NET backend engineering.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://res.cloudinary.com/deoayl2hl/image/upload/v1781381918/Ahmed_t9v4sa.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ahmed Hamdy Mansour | Dynamics 365 F&amp;O Developer">
+  <meta name="twitter:description" content="Software Engineer and Dynamics 365 Finance &amp; Operations Developer specializing in X++, ERP development, and .NET backend engineering.">
+  <meta name="twitter:image" content="https://res.cloudinary.com/deoayl2hl/image/upload/v1781381918/Ahmed_t9v4sa.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -19,14 +27,17 @@
     html{scroll-behavior:smooth;font-size:16px}
     body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
     body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px;opacity:.12;pointer-events:none;z-index:0}
+    a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
 
     /* ── NAV ── */
     nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:12px 5vw;display:flex;align-items:center;justify-content:space-between;background:rgba(11,15,26,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:padding .3s}
     nav.scrolled{padding:8px 5vw}
-    .nav-logo{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--accent);font-weight:500;letter-spacing:.04em;white-space:nowrap}
-    .nav-right{display:flex;align-items:center;gap:24px}
-    .nav-links{display:flex;gap:24px;list-style:none;align-items:center}
-    .nav-links a{font-size:.82rem;color:var(--muted);text-decoration:none;transition:color .2s;letter-spacing:.02em}
+    .nav-logo{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--accent);font-weight:500;letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:60vw}
+    .nav-logo .logo-short{display:none}
+    .nav-logo .logo-full{display:inline}
+    .nav-right{display:flex;align-items:center;gap:22px}
+    .nav-links{display:flex;gap:18px;list-style:none;align-items:center}
+    .nav-links a{font-size:.79rem;color:var(--muted);text-decoration:none;transition:color .2s;letter-spacing:.02em}
     .nav-links a:hover{color:var(--text)}
     .nav-cv{font-size:.76rem!important;color:var(--accent)!important;border:1px solid var(--accent);padding:5px 13px;border-radius:5px;transition:background .2s,color .2s!important}
     .nav-cv:hover{background:var(--accent)!important;color:#000!important}
@@ -37,17 +48,17 @@
     .hamburger.open span:nth-child(2){opacity:0}
     .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
     /* Mobile menu */
-    .mobile-menu{display:none;position:fixed;inset:0;top:57px;background:rgba(11,15,26,.97);backdrop-filter:blur(20px);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+    .mobile-menu{display:none;position:fixed;inset:0;top:57px;background:rgba(11,15,26,.97);backdrop-filter:blur(20px);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:26px;overflow-y:auto;padding:30px 0}
     .mobile-menu.open{display:flex}
-    .mobile-menu a{font-size:1.3rem;color:var(--text);text-decoration:none;transition:color .2s;font-weight:600}
+    .mobile-menu a{font-size:1.15rem;color:var(--text);text-decoration:none;transition:color .2s;font-weight:600}
     .mobile-menu a:hover{color:var(--accent)}
-    .mobile-menu .m-cv{color:var(--accent);border:1px solid var(--accent);padding:10px 28px;border-radius:8px;font-size:1rem!important}
+    .mobile-menu .m-cv{color:var(--accent);border:1px solid var(--accent);padding:9px 26px;border-radius:8px;font-size:1rem!important}
 
     /* ── HERO ── */
     .hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;padding:110px 8vw 70px;z-index:1}
     .hero-glow{position:absolute;top:-150px;left:-100px;width:700px;height:700px;background:radial-gradient(circle,rgba(0,200,255,.07) 0%,transparent 70%);pointer-events:none}
     .hero-glow2{position:absolute;bottom:-100px;right:-50px;width:550px;height:550px;background:radial-gradient(circle,rgba(123,97,255,.06) 0%,transparent 70%);pointer-events:none}
-    .hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;overflow:hidden}
+    .hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;overflow:hidden}
     .hero-eyebrow::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent);flex-shrink:0}
     .hero h1{font-size:clamp(2.4rem,5vw,4.8rem);font-weight:700;line-height:1.04;margin-bottom:20px;letter-spacing:-.02em}
     .hero h1 .grad{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -63,10 +74,10 @@
     .soc-btn svg{width:17px;height:17px;fill:currentColor}
 
     /* ── PHOTO ── */
-    .hero-photo-wrap{position:relative;display:flex;justify-content:center;align-items:center}
+    .hero-photo-wrap{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center}
     .hero-photo-ring{position:relative;width:320px;height:320px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));padding:3px;flex-shrink:0}
-    .hero-photo-inner{width:100%;height:100%;border-radius:50%;overflow:hidden;background:var(--card-bg) }
-    .hero-photo-inner img{width:100%;height:103%;object-fit:cover;object-position:center top;filter:grayscale(8%);transition:filter .4s }
+    .hero-photo-inner{width:100%;height:100%;border-radius:50%;overflow:hidden;background:var(--card-bg)}
+    .hero-photo-inner img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(8%);transition:filter .4s}
     .hero-photo-ring:hover .hero-photo-inner img{filter:grayscale(0%)}
     .hero-photo-ring::before{content:'';position:absolute;inset:-13px;border-radius:50%;border:1px dashed rgba(0,200,255,.22);animation:spin 28s linear infinite}
     .hero-photo-ring::after{content:'';position:absolute;inset:-26px;border-radius:50%;border:1px dashed rgba(123,97,255,.14);animation:spin 48s linear infinite reverse}
@@ -88,7 +99,7 @@
     .bico{font-size:.95rem;flex-shrink:0}
 
     /* ── BUTTONS ── */
-    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#000;padding:11px 24px;border-radius:7px;font-weight:700;font-size:.87rem;text-decoration:none;transition:opacity .2s,transform .2s;white-space:nowrap}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#000;padding:11px 24px;border-radius:7px;font-weight:700;font-size:.87rem;text-decoration:none;transition:opacity .2s,transform .2s;white-space:nowrap;border:none;cursor:pointer;font-family:'Space Grotesk',sans-serif}
     .btn-primary:hover{opacity:.85;transform:translateY(-2px)}
     .btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);color:var(--text);padding:11px 24px;border-radius:7px;font-weight:500;font-size:.87rem;text-decoration:none;transition:border-color .2s,transform .2s;white-space:nowrap}
     .btn-ghost:hover{border-color:var(--accent);transform:translateY(-2px)}
@@ -105,18 +116,25 @@
     .stat{padding:0 28px;border-right:1px solid var(--border);text-align:center}
     .stat:first-child{padding-left:0;text-align:left}
     .stat:last-child{border-right:none}
-    .snum{font-size:1.9rem;font-weight:700;color:var(--accent);font-family:'JetBrains Mono',monospace;line-height:1}
+    .snum{font-size:1.85rem;font-weight:700;color:var(--accent);font-family:'JetBrains Mono',monospace;line-height:1}
     .slbl{font-size:.75rem;color:var(--muted);margin-top:4px}
-
-    /* ── CV BANNER ── */
-    .cv-banner{position:relative;z-index:1;padding:28px 8vw;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:linear-gradient(135deg,rgba(0,200,255,.05),rgba(123,97,255,.05));border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-    .cv-btxt{font-size:.97rem;font-weight:600}
-    .cv-bsub{font-size:.8rem;color:var(--muted);margin-top:4px}
 
     /* ── SECTION ── */
     section{position:relative;z-index:1;padding:72px 8vw}
     .eyebrow{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.24em;text-transform:uppercase;margin-bottom:10px}
     .sec-title{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;margin-bottom:42px;letter-spacing:-.01em}
+
+    /* ── ABOUT ── */
+    .about-wrap{max-width:680px;display:flex;flex-direction:column;gap:16px}
+    .about-wrap p{color:var(--muted);font-size:.93rem;line-height:1.85}
+    .about-wrap p:first-child{color:var(--text)}
+
+    /* ── D365 SECTION ── */
+    .d365-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+    .d365-card{background:var(--card-bg);border:1px solid rgba(0,200,255,.22);border-radius:10px;padding:20px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
+    .d365-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+    .d365-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+    .d365-card-title{font-size:.76rem;font-family:'JetBrains Mono',monospace;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px;font-weight:600}
 
     /* ── PROJECTS ── */
     .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
@@ -135,7 +153,7 @@
     .sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
     .sgroup{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:20px;transition:border-color .2s,transform .2s}
     .sgroup:hover{border-color:rgba(123,97,255,.4);transform:translateY(-2px)}
-    .sgtitle{font-size:.69rem;font-family:'JetBrains Mono',monospace;color:var(--accent2);letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px}
+    .sgtitle{font-size:.69rem;font-family:'JetBrains Mono',monospace;color:var(--accent2);letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px;font-weight:600}
     .slist{display:flex;flex-wrap:wrap;gap:7px}
 
     /* ── TIMELINE ── */
@@ -149,6 +167,10 @@
     .trole{font-size:.98rem;font-weight:600;margin-bottom:3px}
     .tco{font-size:.81rem;color:var(--muted);margin-bottom:10px}
     .tdesc{font-size:.85rem;color:var(--muted);line-height:1.72}
+    .titem-primary{border-color:rgba(0,200,255,.32);background:linear-gradient(155deg,rgba(0,200,255,.06),var(--card-bg) 60%)}
+    .titem-primary:hover{border-color:var(--accent)}
+    .titem-primary::before{width:11px;height:11px;left:-35px;top:23px;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 16px var(--accent)}
+    .partner-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,200,255,.12);color:var(--accent);font-size:.66rem;font-family:'JetBrains Mono',monospace;padding:4px 11px;border-radius:99px;margin-bottom:12px;letter-spacing:.03em}
 
     /* ── CERTS ── */
     .cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
@@ -158,19 +180,72 @@
     .ctitle{font-size:.91rem;font-weight:600;margin-bottom:5px}
     .cdesc{font-size:.8rem;color:var(--muted);line-height:1.65}
 
+    /* ── CV CARDS ── */
+    .cv-cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:820px}
+    .cv-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:12px;position:relative;transition:border-color .25s,transform .25s,box-shadow .25s}
+    .cv-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,200,255,.08)}
+    .cv-primary{border-color:rgba(0,200,255,.3);background:linear-gradient(160deg,rgba(0,200,255,.05),var(--card-bg) 60%)}
+    .cv-primary:hover{border-color:var(--accent);box-shadow:0 12px 40px rgba(0,200,255,.12)}
+    .cv-card-badge{position:absolute;top:16px;right:16px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#000;font-size:.62rem;font-weight:700;padding:3px 10px;border-radius:99px;letter-spacing:.05em}
+    .cv-card-icon{font-size:1.8rem;line-height:1}
+    .cv-card-title{font-size:1rem;font-weight:700;color:var(--text)}
+    .cv-card-sub{font-size:.75rem;color:var(--accent);font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+    .cv-card-tags{display:flex;flex-wrap:wrap;gap:6px}
+    .cv-card-desc{font-size:.82rem;color:var(--muted);line-height:1.68;flex:1}
+    .cv-dl-btn{width:100%;justify-content:center;margin-top:4px}
+
+    /* ── CV MODAL ── */
+    .cv-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(8px);z-index:500;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s}
+    .cv-modal-overlay.open{opacity:1;pointer-events:all}
+    .cv-modal{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;width:100%;max-width:600px;position:relative;transform:translateY(16px);transition:transform .25s;max-height:88vh;overflow-y:auto}
+    .cv-modal-overlay.open .cv-modal{transform:translateY(0)}
+    .cv-modal-close{position:absolute;top:14px;right:14px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.2rem;padding:4px 8px;border-radius:6px;transition:color .2s,background .2s}
+    .cv-modal-close:hover{color:var(--text);background:var(--tag-bg)}
+    .cv-modal h3{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+    .cv-modal p{font-size:.83rem;color:var(--muted);margin-bottom:24px}
+    .cv-modal-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .cv-modal-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px;transition:border-color .2s,transform .2s;cursor:default}
+    .cv-modal-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+    .cv-modal-card.primary{border-color:rgba(0,200,255,.3)}
+    .cv-modal-card-icon{font-size:1.4rem}
+    .cv-modal-card-title{font-size:.9rem;font-weight:700}
+    .cv-modal-card-desc{font-size:.76rem;color:var(--muted);line-height:1.6;flex:1}
+    .cv-modal-badge{display:inline-block;background:rgba(0,200,255,.12);color:var(--accent);font-size:.6rem;font-family:'JetBrains Mono',monospace;padding:2px 8px;border-radius:99px;margin-bottom:2px}
+    .cv-modal-sub{font-size:.62rem;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+
+    /* ── FOOTER CV LINKS ── */
+    .footer-cv-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .footer-cv-link{display:inline-flex;align-items:center;gap:6px;font-size:.73rem;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:4px 12px;border-radius:5px;transition:border-color .2s,color .2s}
+    .footer-cv-link:hover{border-color:var(--accent);color:var(--accent)}
+    .footer-cv-primary{color:var(--accent);border-color:rgba(0,200,255,.3)}
+
     /* ── CONTACT ── */
-    .cwrap{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:44px;display:flex;gap:44px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-    .ctext h2{font-size:1.75rem;font-weight:700;margin-bottom:9px}
-    .ctext p{color:var(--muted);font-size:.9rem}
+    .contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:44px;align-items:start}
+    .contact-info p{color:var(--muted);font-size:.9rem;line-height:1.78;margin-bottom:26px}
     .clinks{display:flex;flex-direction:column;gap:11px}
     .clink{display:flex;align-items:center;gap:12px;color:var(--text);text-decoration:none;font-size:.86rem;transition:color .2s,transform .2s}
-    .clink:hover{color:var(--accent);transform:translateX(5px)}
+    a.clink:hover{color:var(--accent);transform:translateX(5px)}
     .cico2{width:36px;height:36px;background:var(--tag-bg);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
 
+    .cform{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:15px}
+    .cform-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .cform-group{display:flex;flex-direction:column;gap:6px}
+    .cform-group label{font-size:.74rem;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.04em}
+    .cform-group input,.cform-group textarea{background:var(--tag-bg);border:1px solid var(--border);border-radius:7px;padding:10px 12px;color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:.88rem;transition:border-color .2s;resize:vertical}
+    .cform-group input:focus,.cform-group textarea:focus{outline:none;border-color:var(--accent)}
+    .cform-group input.invalid,.cform-group textarea.invalid{border-color:#f87171}
+    .cform-error{font-size:.7rem;color:#f87171;min-height:14px}
+    .cform-honeypot{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+    .cform-submit{justify-content:center;margin-top:2px}
+    .cform-submit:disabled{opacity:.6;cursor:not-allowed;transform:none!important}
+    .cform-status{font-size:.83rem;text-align:center;min-height:18px;padding:2px 0}
+    .cform-status.success{color:#22c55e}
+    .cform-status.error{color:#f87171}
+
     /* ── FOOTER ── */
-    footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:20px 8vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:.74rem;color:var(--muted)}
+    footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:20px 8vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:.74rem;color:var(--muted)}
     .fsoc{display:flex;gap:9px}
-    .fs{width:30px;height:30px;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--muted);transition:border-color .2s,color .2s}
+    .fs{width:30px;height:30px;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--muted);transition:border-color .2s,color .2s;font-size:13px}
     .fs:hover{border-color:var(--accent);color:var(--accent)}
     .fs svg{width:13px;height:13px;fill:currentColor}
 
@@ -192,45 +267,67 @@
 
     /* ═══ RESPONSIVE ═══ */
     @media(max-width:1100px){
-      .badge-wrap{right:-20px}
+      .badge-wrap{right:-10px}
+      .nav-links{gap:14px}
     }
     @media(max-width:960px){
-      .hero{grid-template-columns:1fr;padding-top:100px;text-align:center;gap:40px}
+      .hero{grid-template-columns:1fr;padding-top:90px;padding-bottom:50px;text-align:center;gap:0}
+      .hero-inner{order:2}
+      .hero-photo-wrap{order:1;margin-bottom:28px;flex-direction:column;align-items:center}
+      .hero-photo-ring{width:210px;height:210px}
       .hero-desc{max-width:100%}
       .hero-cta{justify-content:center}
       .hero-eyebrow{justify-content:center}
       .hero-socials{justify-content:center}
-      .hero-photo-wrap{order:-1}
-      .hero-photo-ring{width:240px;height:240px}
-      .badge-wrap{right:-12px;top:auto;bottom:-14px;transform:none;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:8px;position:relative;margin-top:16px}
-      .badge{min-width:140px;justify-content:center;transform:none!important}
-      .badge:hover{transform:translateY(-3px)!important;box-shadow:0 -3px 16px rgba(0,200,255,.12)!important}
+      .badge-wrap{position:static;transform:none;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:14px;width:100%}
+      .badge{min-width:0;flex:0 1 auto;justify-content:flex-start;transform:none !important;white-space:nowrap;padding:9px 13px}
+      .badge:hover{transform:translateY(-2px) !important;box-shadow:0 4px 14px rgba(0,200,255,.12) !important}
+      .contact-grid{grid-template-columns:1fr;gap:32px}
     }
     @media(max-width:700px){
-      .hero{padding:90px 5vw 50px}
-      section{padding:56px 5vw}
-      .stats{grid-template-columns:1fr 1fr;gap:0}
-      .stat{padding:14px;border-right:none;border-bottom:1px solid var(--border);text-align:center}
-      .stat:first-child{text-align:center;padding:14px}
-      .stat:nth-child(odd){border-right:1px solid var(--border)}
-      .stat:nth-last-child(-n+2){border-bottom:none}
+      .nav-logo{font-size:.75rem;letter-spacing:.02em;max-width:55vw}
+      .nav-logo .logo-full{display:none}
+      .nav-logo .logo-short{display:inline}
       .nav-links{display:none}
       .hamburger{display:flex}
-      .cwrap{padding:24px}
-      .cv-banner{padding:20px 5vw}
+      .hero{padding:80px 4vw 40px}
+      .hero h1{font-size:2.4rem}
+      .hero-eyebrow{font-size:.62rem;letter-spacing:.1em}
+      .hero-photo-ring{width:180px;height:180px}
+      .hero-photo-ring::before{inset:-9px}
+      .hero-photo-ring::after{inset:-18px}
+      .hero-cta{flex-direction:column;align-items:center;gap:10px}
+      .btn-primary,.btn-ghost,.btn-cv{width:100%;max-width:280px;justify-content:center}
+      section{padding:48px 4vw}
+      .sec-title{margin-bottom:28px}
+      .stats{grid-template-columns:1fr 1fr;gap:0;padding:0}
+      .stat{padding:18px 12px;border-right:none;border-bottom:1px solid var(--border);text-align:center}
+      .stat:nth-child(odd){border-right:1px solid var(--border)}
+      .stat:nth-last-child(-n+2){border-bottom:none}
+      .snum{font-size:1.5rem}
+      .cwrap{padding:22px 18px}
+      .footer-cv-links{justify-content:center}
+      footer{flex-direction:column;align-items:center;text-align:center;gap:12px;padding:18px 4vw}
+      .timeline{padding-left:20px}
+      .titem::before,.titem-primary::before{left:-25px}
+      .titem{padding:16px}
+      .cv-cards{grid-template-columns:1fr}
+      .cv-modal-cards{grid-template-columns:1fr}
+      .cform{padding:22px}
     }
-    @media(max-width:440px){
-      .hero h1{font-size:2.2rem}
-      .badge-wrap{flex-direction:column;align-items:center}
+    @media(max-width:520px){
+      .cform-row{grid-template-columns:1fr}
+    }
+    @media(max-width:400px){
+      .nav-logo{font-size:.68rem}
+      .hero h1{font-size:2rem}
+      .hero-eyebrow{font-size:.56rem;letter-spacing:.06em}
+      .hero-photo-ring{width:155px;height:155px}
+      .badge{font-size:.68rem;padding:8px 11px;gap:7px}
+      .bt{font-size:.67rem}
+      .bs{font-size:.6rem}
     }
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
-
-    /* ── SKILL BAR ── */
-    .skill-bars{display:flex;flex-direction:column;gap:12px;margin-top:8px}
-    .sb-row{display:flex;flex-direction:column;gap:5px}
-    .sb-label{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted)}
-    .sb-track{height:4px;background:var(--tag-bg);border-radius:99px;overflow:hidden}
-    .sb-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
   </style>
 </head>
 <body>
@@ -242,18 +339,23 @@
 </button>
 
 <!-- NAV -->
-<nav id="navbar">
-  <div class="nav-logo">ahmed.hamdy_</div>
+<nav id="navbar" aria-label="Primary navigation">
+  <div class="nav-logo">
+    <span class="logo-full">ahmed.hamdy_</span>
+    <span class="logo-short">AH_</span>
+  </div>
   <div class="nav-right">
     <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#d365">D365 F&amp;O</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#certs">Certs</a></li>
+      <li><a href="#certs">Certifications</a></li>
+      <li><a href="#cv-section" class="nav-cv">CV</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="AhmedHamdyMansour.pdf" download class="nav-cv">↓ CV</a></li>
     </ul>
-    <button class="hamburger" id="hbg" aria-label="Menu">
+    <button class="hamburger" id="hbg" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -261,12 +363,14 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#about" class="m-link">About</a>
+  <a href="#d365" class="m-link">D365 F&amp;O</a>
+  <a href="#experience" class="m-link">Experience</a>
   <a href="#projects" class="m-link">Projects</a>
   <a href="#skills" class="m-link">Skills</a>
-  <a href="#experience" class="m-link">Experience</a>
   <a href="#certs" class="m-link">Certifications</a>
+  <a href="#cv-section" class="m-link m-cv">CV</a>
   <a href="#contact" class="m-link">Contact</a>
-  <a href="AhmedHamdyMansour.pdf" download class="m-cv">↓ Download CV</a>
 </div>
 
 <!-- HERO -->
@@ -275,25 +379,25 @@
   <div class="hero-glow2"></div>
 
   <div class="hero-inner">
-    <div class="hero-eyebrow" id="heroLabel">Backend .NET Developer</div>
+    <div class="hero-eyebrow" id="heroLabel">Dynamics 365 F&amp;O Developer</div>
     <h1>Ahmed<br><span class="grad">Hamdy</span><br>Mansour</h1>
-    <p class="hero-desc">Building robust, scalable backend systems with ASP.NET Core. Passionate about clean architecture, RESTful API design, and solving real-world problems through code. Open to Junior .NET Backend roles.</p>
+    <p class="hero-desc">Developing and customizing enterprise ERP solutions with Microsoft Dynamics 365 Finance &amp; Operations and X++, backed by a strong foundation in .NET backend development.</p>
     <div class="hero-cta">
-      <a href="mailto:ahmedhamdymansour25@gmail.com" class="btn-primary">✉ Get in Touch</a>
-      <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" rel="noopener" class="btn-ghost">LinkedIn ↗</a>
-      <a href="AhmedHamdyMansour.pdf" download class="btn-cv">
+      <a href="#contact" class="btn-primary">✉ Get In Touch</a>
+      <a href="#experience" class="btn-ghost">View Experience</a>
+      <button class="btn-cv" onclick="openCvModal()">
         <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         <span>Download CV</span>
-      </a>
+      </button>
     </div>
     <div class="hero-socials">
-      <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" rel="noopener" class="soc-btn li" title="LinkedIn">
+      <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" rel="noopener" class="soc-btn li" title="LinkedIn" aria-label="LinkedIn">
         <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       </a>
-      <a href="https://github.com/a7med255" target="_blank" rel="noopener" class="soc-btn gh" title="GitHub">
+      <a href="https://github.com/a7med255" target="_blank" rel="noopener" class="soc-btn gh" title="GitHub" aria-label="GitHub">
         <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
       </a>
-      <a href="https://www.facebook.com/ahmed.mans25" target="_blank" rel="noopener" class="soc-btn fb" title="Facebook">
+      <a href="https://www.facebook.com/ahmed.mans25" target="_blank" rel="noopener" class="soc-btn fb" title="Facebook" aria-label="Facebook">
         <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
       </a>
     </div>
@@ -303,41 +407,100 @@
   <div class="hero-photo-wrap">
     <div class="hero-photo-ring">
       <div class="hero-photo-inner">
-        <img src="Ahmed.png" alt="Ahmed Hamdy Mansour — .NET Backend Developer" loading="eager"/>
+        <img src="https://res.cloudinary.com/deoayl2hl/image/upload/v1781381918/Ahmed_t9v4sa.jpg" alt="Ahmed Hamdy Mansour — Dynamics 365 F&amp;O Developer" loading="eager"/>
       </div>
     </div>
     <div class="badge-wrap">
-      <div class="badge"><div class="bdot g"></div><div class="btext"><span class="bt">Open to Work</span><span class="bs">Available now</span></div></div>
-      <div class="badge"><div class="bico">🎓</div><div class="btext"><span class="bt">CS Graduate</span><span class="bs">Menoufia · 2025</span></div></div>
-      <div class="badge"><div class="bdot b"></div><div class="btext"><span class="bt">.NET Backend</span><span class="bs">3+ yrs experience</span></div></div>
+      <div class="badge"><div class="bdot g"></div><div class="btext"><span class="bt">Open to Work</span><span class="bs">Available for full-time roles</span></div></div>
+      <div class="badge"><div class="bico">🎓</div><div class="btext"><span class="bt">CS Graduate</span><span class="bs">Menoufia University · 2025</span></div></div>
+      <div class="badge"><div class="bdot p"></div><div class="btext"><span class="bt">D365 F&amp;O Developer</span><span class="bs">Current Role</span></div></div>
     </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="eyebrow reveal">Introduction</div>
+  <h2 class="sec-title reveal">About Me</h2>
+  <div class="about-wrap reveal">
+    <p>I'm a Computer Science graduate from Menoufia University and a Software Engineer currently developing my career in Microsoft Dynamics 365 Finance &amp; Operations.</p>
+    <p>I currently work as an ERP Dynamics 365 F&amp;O Developer Intern at Cubic Information Systems, a Microsoft Dynamics 365 Partner, where I work with X++ and D365 F&amp;O development and customization.</p>
+    <p>My background in .NET backend development gives me a strong foundation in APIs, databases, authentication, architecture, and software engineering, which I bring into my ERP development journey.</p>
   </div>
 </section>
 
 <!-- STATS -->
 <div class="stats">
-  <div class="stat reveal"><div class="snum" data-target="3" data-suffix="+">0</div><div class="slbl">Years Building</div></div>
   <div class="stat reveal"><div class="snum" data-target="300" data-suffix="+">0</div><div class="slbl">Problems Solved</div></div>
   <div class="stat reveal"><div class="snum" data-target="20" data-suffix="+">0</div><div class="slbl">API Endpoints / Project</div></div>
-  <div class="stat reveal"><div class="snum" data-target="0" data-text="ICPC">ICPC</div><div class="slbl">Qualifier 2022 & 2023</div></div>
+  <div class="stat reveal"><div class="snum" data-text="yes">2022–2023</div><div class="slbl">ICPC Qualifications</div></div>
+  <div class="stat reveal"><div class="snum" data-text="yes">2025</div><div class="slbl">Computer Science Graduate</div></div>
 </div>
 
-<!-- CV BANNER -->
-<div class="cv-banner reveal">
-  <div>
-    <div class="cv-btxt">📄 Want the full picture?</div>
-    <div class="cv-bsub">Download my CV — experience, projects & skills · Updated July 2025</div>
+<!-- D365 F&O -->
+<section id="d365" style="background:linear-gradient(180deg, rgba(0,200,255,.045), transparent 65%);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="eyebrow reveal">Current Focus</div>
+  <h2 class="sec-title reveal" style="margin-bottom:6px">Dynamics 365 Finance &amp; Operations</h2>
+  <div class="reveal" style="color:var(--accent2);font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px">ERP Development &amp; Customization</div>
+  <p class="reveal" style="color:var(--muted);font-size:.9rem;max-width:620px;margin-bottom:36px;line-height:1.75">Hands-on experience developing and customizing Microsoft Dynamics 365 Finance &amp; Operations solutions using X++, gained through my internship at a Microsoft Dynamics 365 Partner.</p>
+
+  <div class="d365-grid reveal">
+    <div class="d365-card">
+      <h3 class="d365-card-title"><span>⚙️</span> X++ Development</h3>
+      <div class="slist"><span class="tag">X++</span><span class="tag">Object-Oriented Programming</span><span class="tag">Extensions &amp; Customization</span><span class="tag">Visual Studio</span></div>
+    </div>
+    <div class="d365-card">
+      <h3 class="d365-card-title"><span>🧩</span> D365 Development</h3>
+      <div class="slist"><span class="tag">Forms</span><span class="tag">Tables</span><span class="tag">Classes</span><span class="tag">Data Entities</span><span class="tag">OData Services</span><span class="tag">APIs</span><span class="tag">Workflows</span><span class="tag">Batch Jobs</span><span class="tag">SSRS Reports</span></div>
+    </div>
+    <div class="d365-card">
+      <h3 class="d365-card-title"><span>🔒</span> Security</h3>
+      <div class="slist"><span class="tag">Roles</span><span class="tag">Duties</span><span class="tag">Privileges</span></div>
+    </div>
+    <div class="d365-card">
+      <h3 class="d365-card-title"><span>🛠️</span> Development Tools</h3>
+      <div class="slist"><span class="tag">Visual Studio</span><span class="tag">Azure DevOps</span><span class="tag">Git</span><span class="tag">GitHub</span></div>
+    </div>
+    <div class="d365-card">
+      <h3 class="d365-card-title"><span>📊</span> ERP</h3>
+      <div class="slist"><span class="tag">ERP Concepts</span><span class="tag">Business Process Analysis</span><span class="tag">Agile / Scrum</span></div>
+    </div>
   </div>
-  <a href="AhmedHamdyMansour.pdf" download class="btn-cv" style="padding:13px 32px;font-size:.9rem">
-    <svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    <span>Download CV</span>
-  </a>
-</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="eyebrow reveal">Journey</div>
+  <h2 class="sec-title reveal">Experience &amp; Education</h2>
+  <div class="timeline">
+    <div class="titem titem-primary reveal">
+      <span class="partner-badge">🤝 Microsoft Dynamics 365 Partner</span>
+      <div class="tdate">Jul 2026 – Present</div>
+      <h3 class="trole">ERP Dynamics 365 F&amp;O Developer — Intern</h3>
+      <div class="tco">Cubic Information Systems · Hybrid</div>
+      <div class="tdesc">Developing and customizing Microsoft Dynamics 365 Finance &amp; Operations solutions using X++, with hands-on experience in Forms, Tables, Classes, Data Entities, OData/API services, and Workflow development and customization.</div>
+      <div class="tags" style="margin-top:12px"><span class="tag">X++</span><span class="tag">D365 F&amp;O</span><span class="tag">Forms</span><span class="tag">Tables</span><span class="tag">Classes</span><span class="tag">Data Entities</span><span class="tag">OData</span><span class="tag">APIs</span><span class="tag">Workflows</span></div>
+    </div>
+    <div class="titem reveal">
+      <div class="tdate">Jul 2025 – Nov 2025</div>
+      <h3 class="trole">.NET Core Backend Developer — Intern</h3>
+      <div class="tco">KGE Technologies PVT LTD · Remote</div>
+      <div class="tdesc">Developed and improved a Community Management API using ASP.NET Core Web API. Implemented JWT authentication, social login, role management, and events &amp; posts modules. Managed databases with EF Core, MySQL, and DBeaver. Optimized APIs for performance, security, and stability.</div>
+    </div>
+    <div class="titem reveal">
+      <div class="tdate">2021 – 2025</div>
+      <h3 class="trole">Bachelor's in Computer Science</h3>
+      <div class="tco">Menoufia University · Graduated July 2025 · CS Department</div>
+      <div class="tdesc">Four-year CS degree with a focus on software engineering, algorithms, data structures, and object-oriented programming.</div>
+    </div>
+  </div>
+</section>
 
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="eyebrow reveal">Work</div>
-  <h2 class="sec-title reveal">Featured Projects</h2>
+  <div class="eyebrow reveal">Software Engineering</div>
+  <h2 class="sec-title reveal" style="margin-bottom:14px">Featured Projects</h2>
+  <p class="reveal" style="color:var(--muted);font-size:.87rem;max-width:580px;margin-bottom:36px;line-height:1.7">Backend engineering projects built with ASP.NET Core — my Dynamics 365 F&amp;O experience is featured under Professional Experience above.</p>
   <div class="pgrid">
     <div class="pcard reveal">
       <span class="pbadge"><a href="https://lungora.runasp.net/swagger/index.html" target="_blank" rel="noopener">LIVE · 2025</a></span>
@@ -357,13 +520,13 @@
       <span class="pbadge">2024</span>
       <span class="pbadge"><a href="https://github.com/a7med255/ProjectLapShop" target="_blank" rel="noopener">GitHub ↗</a></span>
       <h3>Lap Shop — Laptop E-Commerce</h3>
-      <p>Online laptop store supporting 1,000+ products with secure auth, product & order management, SQL Views, and 30+ database tables managed with EF Core.</p>
+      <p>Online laptop store supporting 1,000+ products with secure auth, product &amp; order management, SQL Views, and 30+ database tables managed with EF Core.</p>
       <div class="tags"><span class="tag">ASP.NET Core MVC</span><span class="tag">EF Core</span><span class="tag">SQL Server</span><span class="tag">Caching</span><span class="tag">ViewModels</span><span class="tag">DI</span></div>
     </div>
     <div class="pcard reveal">
       <span class="pbadge">INTERNSHIP · 2025</span>
       <h3>Community Management API</h3>
-      <p>Built at KGE Technologies. JWT auth, social login, RBAC, events & posts modules. Optimized APIs for performance, security, and stability.</p>
+      <p>Built at KGE Technologies. JWT auth, social login, RBAC, events &amp; posts modules. Optimized APIs for performance, security, and stability.</p>
       <div class="tags"><span class="tag">ASP.NET Core</span><span class="tag">JWT</span><span class="tag">MySQL</span><span class="tag">EF Core</span><span class="tag">RBAC</span><span class="tag">DBeaver</span><span class="tag">Serilog</span></div>
     </div>
   </div>
@@ -372,102 +535,203 @@
 <!-- SKILLS -->
 <section id="skills" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="eyebrow reveal">Toolkit</div>
-  <h2 class="sec-title reveal">Skills & Technologies</h2>
+  <h2 class="sec-title reveal">Skills &amp; Technologies</h2>
   <div class="sgrid">
-    <div class="sgroup reveal"><div class="sgtitle">Languages</div><div class="slist"><span class="tag">C#</span><span class="tag">Java</span><span class="tag">C++</span></div></div>
-    <div class="sgroup reveal"><div class="sgtitle">Backend Frameworks</div><div class="slist"><span class="tag">ASP.NET Core MVC</span><span class="tag">ASP.NET Core Web API</span><span class="tag">Entity Framework Core</span><span class="tag">LINQ</span></div></div>
-    <div class="sgroup reveal"><div class="sgtitle">Architecture & Design</div><div class="slist"><span class="tag">SOLID</span><span class="tag">Design Patterns</span><span class="tag">Onion Architecture</span><span class="tag">Clean Architecture</span><span class="tag">Repository Pattern</span><span class="tag">Unit of Work</span><span class="tag">CQRS</span><span class="tag">DI</span></div></div>
-    <div class="sgroup reveal"><div class="sgtitle">Auth & Security</div><div class="slist"><span class="tag">JWT</span><span class="tag">OAuth 2.0</span><span class="tag">ASP.NET Identity</span><span class="tag">RBAC</span><span class="tag">Social Login</span></div></div>
-    <div class="sgroup reveal"><div class="sgtitle">Databases</div><div class="slist"><span class="tag">SQL Server</span><span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">DBeaver</span></div></div>
-    <div class="sgroup reveal"><div class="sgtitle">API & Tools</div><div class="slist"><span class="tag">RESTful APIs</span><span class="tag">API Versioning</span><span class="tag">Swagger/OpenAPI</span><span class="tag">Postman</span><span class="tag">Stripe</span><span class="tag">Cloudinary</span><span class="tag">Serilog</span><span class="tag">Logging</span></div></div>
-    <div class="sgroup reveal"><div class="sgtitle">Frontend</div><div class="slist"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">jQuery</span><span class="tag">Bootstrap</span></div></div>
-    <div class="sgroup reveal"><div class="sgtitle">Dev & Workflow</div><div class="slist"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Jira</span><span class="tag">Agile / Scrum</span><span class="tag">Prompt Engineering</span><span class="tag">Deployment (monsterasp)</span></div></div>
-  </div>
-
-  <!-- CORE SKILL BARS -->
-  <div style="margin-top:42px">
-    <div class="eyebrow reveal" style="margin-bottom:20px">Proficiency</div>
-    <div class="skill-bars reveal" id="skillBars">
-      <div class="sb-row"><div class="sb-label"><span>C# / ASP.NET Core</span><span>90%</span></div><div class="sb-track"><div class="sb-fill" data-w="90"></div></div></div>
-      <div class="sb-row"><div class="sb-label"><span>Entity Framework Core</span><span>85%</span></div><div class="sb-track"><div class="sb-fill" data-w="85"></div></div></div>
-      <div class="sb-row"><div class="sb-label"><span>SQL Server / MySQL</span><span>82%</span></div><div class="sb-track"><div class="sb-fill" data-w="82"></div></div></div>
-      <div class="sb-row"><div class="sb-label"><span>RESTful API Design</span><span>88%</span></div><div class="sb-track"><div class="sb-fill" data-w="88"></div></div></div>
-      <div class="sb-row"><div class="sb-label"><span>Clean Architecture / Design Patterns</span><span>80%</span></div><div class="sb-track"><div class="sb-fill" data-w="80"></div></div></div>
-      <div class="sb-row"><div class="sb-label"><span>Git / GitHub</span><span>85%</span></div><div class="sb-track"><div class="sb-fill" data-w="85"></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="eyebrow reveal">Journey</div>
-  <h2 class="sec-title reveal">Experience & Education</h2>
-  <div class="timeline">
-    <div class="titem reveal">
-      <div class="tdate">Jul 2025 – Nov 2025</div>
-      <div class="trole">.NET Core Backend Developer — Intern</div>
-      <div class="tco">KGE Technologies PVT LTD · Remote</div>
-      <div class="tdesc">Developed and improved a Community Management API using ASP.NET Core Web API. Implemented JWT authentication, social login, role management, and events & posts modules. Managed databases with EF Core, MySQL, and DBeaver. Optimized APIs for performance, security, and stability.</div>
-    </div>
-    <div class="titem reveal">
-      <div class="tdate">2021 – 2025</div>
-      <div class="trole">Bachelor's in Computer Science</div>
-      <div class="tco">Menoufia University · Graduated July 2025 · CS Department</div>
-      <div class="tdesc">Four-year CS degree with focus on software engineering, algorithms, data structures, and OOP. Graduation project: Lungora — AI-powered smart healthcare platform.</div>
-    </div>
-    <div class="titem reveal">
-      <div class="tdate">2023</div>
-      <div class="trole">ITI .NET Training Program</div>
-      <div class="tco">Information Technology Institute · 1-Month Intensive</div>
-      <div class="tdesc">Intensive training covering Web MVC with .NET Core, LINQ, EF Core, and SQL optimization. Built mini projects applying real-world web application development.</div>
-    </div>
+    <div class="sgroup reveal"><h3 class="sgtitle">Dynamics 365 F&amp;O</h3><div class="slist"><span class="tag">Microsoft Dynamics 365 F&amp;O</span><span class="tag">X++</span><span class="tag">Extensions &amp; Customization</span><span class="tag">Forms</span><span class="tag">Tables</span><span class="tag">Classes</span><span class="tag">Data Entities</span><span class="tag">OData Services</span><span class="tag">APIs</span><span class="tag">Workflows</span><span class="tag">Security</span><span class="tag">Roles</span><span class="tag">Duties</span><span class="tag">Privileges</span><span class="tag">SSRS Reports</span><span class="tag">Batch Jobs</span></div></div>
+    <div class="sgroup reveal"><h3 class="sgtitle">Backend Development</h3><div class="slist"><span class="tag">C#</span><span class="tag">ASP.NET Core Web API</span><span class="tag">ASP.NET Core MVC</span><span class="tag">Entity Framework Core</span><span class="tag">LINQ</span><span class="tag">RESTful APIs</span><span class="tag">JWT</span><span class="tag">OAuth 2.0</span><span class="tag">ASP.NET Identity</span><span class="tag">RBAC</span></div></div>
+    <div class="sgroup reveal"><h3 class="sgtitle">Architecture &amp; Engineering</h3><div class="slist"><span class="tag">OOP</span><span class="tag">SOLID Principles</span><span class="tag">Design Patterns</span><span class="tag">Clean Architecture</span><span class="tag">Onion Architecture</span><span class="tag">Repository Pattern</span><span class="tag">Unit of Work</span><span class="tag">CQRS</span><span class="tag">Dependency Injection</span></div></div>
+    <div class="sgroup reveal"><h3 class="sgtitle">Databases</h3><div class="slist"><span class="tag">Microsoft SQL Server</span><span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">DBeaver</span></div></div>
+    <div class="sgroup reveal"><h3 class="sgtitle">Tools</h3><div class="slist"><span class="tag">Visual Studio</span><span class="tag">Azure DevOps</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Swagger / OpenAPI</span><span class="tag">Postman</span><span class="tag">Jira</span><span class="tag">Serilog</span><span class="tag">Logging</span></div></div>
+    <div class="sgroup reveal"><h3 class="sgtitle">Other</h3><div class="slist"><span class="tag">REST</span><span class="tag">JSON</span><span class="tag">XML</span><span class="tag">Business Process Analysis</span><span class="tag">ERP Concepts</span><span class="tag">Agile / Scrum</span></div></div>
   </div>
 </section>
 
 <!-- CERTIFICATIONS -->
 <section id="certs" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="eyebrow reveal">Achievements</div>
-  <h2 class="sec-title reveal">Certifications & Highlights</h2>
+  <h2 class="sec-title reveal">Certifications &amp; Highlights</h2>
   <div class="cgrid">
-    <div class="ccard reveal"><div class="cico">🏆</div><div><div class="ctitle">ICPC Qualifier — 2022 & 2023</div><div class="cdesc">Participated in two consecutive ICPC Qualifications, solving algorithmic problems under time pressure.</div></div></div>
-    <div class="ccard reveal"><div class="cico">⚡</div><div><div class="ctitle">300+ Problems Solved</div><div class="cdesc">Active on Codeforces, LeetCode, VJudge, and HackerRank — sharpening algorithmic thinking continuously.</div></div></div>
-    <div class="ccard reveal"><div class="cico">🎓</div><div><div class="ctitle">ITI .NET Training — 2023</div><div class="cdesc">One-month intensive at the Information Technology Institute on .NET Core, LINQ, EF Core, and SQL.</div></div></div>
-    <div class="ccard reveal"><div class="cico">🚀</div><div><div class="ctitle">TIEC / InnovEgypt — 2022</div><div class="cdesc">Entrepreneurship Training Program: "How to Build a Product for Startup?" — provided by TIEC.</div></div></div>
-    <div class="ccard reveal"><div class="cico">🩺</div><div><div class="ctitle">First Aid Certification — 2023</div><div class="cdesc">Trained in CPR, emergency response, wound care, bleeding control, burns, and fracture management.</div></div></div>
-    <div class="ccard reveal"><div class="cico">🪖</div><div><div class="ctitle">Military Service</div><div class="cdesc">Military exemption — fully available for immediate full-time employment.</div></div></div>
+    <div class="ccard reveal"><div class="cico">🏆</div><div><h3 class="ctitle">ICPC Qualifier — 2022 &amp; 2023</h3><div class="cdesc">Participated in two consecutive ICPC Qualifications, solving algorithmic problems under time pressure.</div></div></div>
+    <div class="ccard reveal"><div class="cico">⚡</div><div><h3 class="ctitle">300+ Problems Solved</h3><div class="cdesc">Active on Codeforces, LeetCode, VJudge, and HackerRank — sharpening algorithmic thinking continuously.</div></div></div>
+    <div class="ccard reveal"><div class="cico">🎓</div><div><h3 class="ctitle">ITI .NET Training — 2023</h3><div class="cdesc">One-month intensive at the Information Technology Institute on .NET Core, LINQ, EF Core, and SQL.</div></div></div>
+    <div class="ccard reveal"><div class="cico">🚀</div><div><h3 class="ctitle">TIEC / InnovEgypt — 2022</h3><div class="cdesc">Entrepreneurship Training Program: "How to Build a Product for Startup?" — provided by TIEC.</div></div></div>
+    <div class="ccard reveal"><div class="cico">🩺</div><div><h3 class="ctitle">First Aid Certification — 2023</h3><div class="cdesc">Trained in CPR, emergency response, wound care, bleeding control, burns, and fracture management.</div></div></div>
+    <div class="ccard reveal"><div class="cico">🪖</div><div><h3 class="ctitle">Military Service</h3><div class="cdesc">Military exemption — fully available for immediate full-time employment.</div></div></div>
+  </div>
+</section>
+
+<!-- CV SECTION -->
+<section id="cv-section" style="border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="eyebrow reveal">Resume</div>
+  <h2 class="sec-title reveal">Choose Your CV</h2>
+  <p class="reveal" style="color:var(--muted);font-size:.92rem;max-width:540px;margin-bottom:36px;line-height:1.75">
+    Looking for a specific role? Choose the CV that best matches the opportunity.
+    <strong style="color:var(--text)"> D365 F&amp;O is my current career focus</strong>, while .NET Backend Development represents my strong software engineering foundation.
+  </p>
+  <div class="cv-cards reveal">
+
+    <!-- D365 CV — PRIMARY -->
+    <div class="cv-card cv-primary">
+      <div class="cv-card-badge">★ Current Focus</div>
+      <div class="cv-card-icon">⚙️</div>
+      <h3 class="cv-card-title">Dynamics 365 F&amp;O Developer</h3>
+      <div class="cv-card-sub">ERP Development</div>
+      <div class="cv-card-tags">
+        <span class="tag">X++</span><span class="tag">D365 F&amp;O</span><span class="tag">ERP</span><span class="tag">OData</span><span class="tag">Workflows</span><span class="tag">Forms</span><span class="tag">Data Entities</span>
+      </div>
+      <p class="cv-card-desc">For opportunities focused on Microsoft Dynamics 365 Finance &amp; Operations, ERP development, X++, and enterprise solutions.</p>
+      <a href="AhmedHamdyMansour_Dymanics365FO_.pdf" download class="btn-cv cv-dl-btn" id="dlD365">
+        <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>Download D365 CV</span>
+      </a>
+    </div>
+
+    <!-- .NET CV -->
+    <div class="cv-card">
+      <div class="cv-card-icon">🔷</div>
+      <h3 class="cv-card-title">.NET Backend Developer</h3>
+      <div class="cv-card-sub">Backend Engineering</div>
+      <div class="cv-card-tags">
+        <span class="tag">C#</span><span class="tag">ASP.NET Core</span><span class="tag">Web API</span><span class="tag">EF Core</span><span class="tag">SQL</span><span class="tag">JWT</span>
+      </div>
+      <p class="cv-card-desc">For opportunities focused on ASP.NET Core, Web API, backend engineering, APIs, databases, and software development.</p>
+      <a href="AhmedHamdyMansour_Backend_DotNet_.pdf" download class="btn-ghost cv-dl-btn" id="dlDotnet">
+        <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>Download .NET CV</span>
+      </a>
+    </div>
+
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="cwrap reveal">
-    <div class="ctext">
-      <h2>Let's build something.</h2>
-      <p>Open to full-time roles, freelance projects,<br>and interesting collaborations.</p>
+  <div class="eyebrow reveal">Get In Touch</div>
+  <h2 class="sec-title reveal">Let's Build Something Together</h2>
+
+  <div class="contact-grid reveal">
+    <div class="contact-info">
+      <p>Have an opportunity, project, or question? Send me a message and I'll get back to you as soon as I can.</p>
+      <div class="clinks">
+        <a href="mailto:ahmedhamdymansour25@gmail.com" class="clink"><div class="cico2">✉</div>ahmedhamdymansour25@gmail.com</a>
+        <a href="tel:+201017373711" class="clink"><div class="cico2">📞</div>+20 101 737 3711</a>
+        <div class="clink" style="cursor:default"><div class="cico2">📍</div>Cairo, Egypt</div>
+        <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" rel="noopener" class="clink"><div class="cico2"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg></div>linkedin.com/in/ahmed-hamdy5</a>
+        <a href="https://github.com/a7med255" target="_blank" rel="noopener" class="clink"><div class="cico2"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div>github.com/a7med255</a>
+        <a href="https://www.facebook.com/ahmed.mans25" target="_blank" rel="noopener" class="clink"><div class="cico2"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>facebook.com/ahmed.mans25</a>
+        <button type="button" class="clink" style="background:none;border:none;cursor:pointer;font-family:inherit;text-align:left;padding:0;width:100%" onclick="openCvModal()"><div class="cico2">📄</div>View my CVs</button>
+      </div>
     </div>
-    <div class="clinks">
-      <a href="mailto:ahmedhamdymansour25@gmail.com" class="clink"><div class="cico2">✉</div>ahmedhamdymansour25@gmail.com</a>
-      <a href="tel:+201017373711" class="clink"><div class="cico2">📞</div>+20 101 737 3711</a>
-      <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" rel="noopener" class="clink"><div class="cico2"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg></div>linkedin.com/in/ahmed-hamdy5</a>
-      <a href="https://github.com/a7med255" target="_blank" rel="noopener" class="clink"><div class="cico2"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div>github.com/a7med255</a>
-      <a href="https://www.facebook.com/ahmed.mans25" target="_blank" rel="noopener" class="clink"><div class="cico2"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>facebook.com/ahmed.mans25</a>
-      <a href="AhmedHamdyMansour.pdf" download class="clink"><div class="cico2">📄</div>Download CV (PDF)</a>
-    </div>
+
+    <form class="cform" id="contactForm" novalidate>
+      <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:2px">Send Me a Message</h3>
+      <p style="color:var(--muted);font-size:.83rem;margin-bottom:4px;line-height:1.6">Have an opportunity, project, or question? Send me a message and I'll get back to you.</p>
+
+      <div class="cform-row">
+        <div class="cform-group">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" autocomplete="name" required>
+          <span class="cform-error" id="err-name"></span>
+        </div>
+        <div class="cform-group">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" autocomplete="email" required>
+          <span class="cform-error" id="err-email"></span>
+        </div>
+      </div>
+
+      <div class="cform-group">
+        <label for="cf-subject">Subject</label>
+        <input type="text" id="cf-subject" name="subject" required>
+        <span class="cform-error" id="err-subject"></span>
+      </div>
+
+      <div class="cform-group">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" rows="5" required></textarea>
+        <span class="cform-error" id="err-message"></span>
+      </div>
+
+      <input type="checkbox" name="botcheck" class="cform-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <button type="submit" class="btn-primary cform-submit" id="cformSubmit">
+        <span class="cform-btn-text">Send Message</span>
+      </button>
+
+      <div class="cform-status" id="cformStatus" role="status" aria-live="polite"></div>
+    </form>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span>Ahmed Hamdy Mansour · Backend .NET Developer</span>
-  <div class="fsoc">
-    <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" rel="noopener" class="fs"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg></a>
-    <a href="https://github.com/a7med255" target="_blank" rel="noopener" class="fs"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-    <a href="https://www.facebook.com/ahmed.mans25" target="_blank" rel="noopener" class="fs"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+  <div style="display:flex;flex-direction:column;gap:4px">
+    <span style="font-weight:600;color:var(--text)">Ahmed Hamdy Mansour</span>
+    <span style="font-size:.72rem">Software Engineer | Dynamics 365 F&amp;O Developer</span>
   </div>
-  <span style="font-family:'JetBrains Mono',monospace">Cairo, Egypt</span>
+  <div class="footer-cv-links">
+    <a href="AhmedHamdyMansour_Dymanics365FO_.pdf" download class="footer-cv-link footer-cv-primary">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      D365 F&amp;O CV
+    </a>
+    <a href="AhmedHamdyMansour_Backend_DotNet_.pdf" download class="footer-cv-link">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      .NET Backend CV
+    </a>
+  </div>
+  <div class="fsoc">
+    <a href="mailto:ahmedhamdymansour25@gmail.com" class="fs" title="Email" aria-label="Email">✉</a>
+    <a href="https://www.linkedin.com/in/ahmed-hamdy5/" target="_blank" rel="noopener" class="fs" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg></a>
+    <a href="https://github.com/a7med255" target="_blank" rel="noopener" class="fs" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+    <a href="https://www.facebook.com/ahmed.mans25" target="_blank" rel="noopener" class="fs" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+  </div>
+  <span style="font-family:'JetBrains Mono',monospace;font-size:.7rem">Cairo, Egypt</span>
 </footer>
 
+<!-- CV MODAL -->
+<div class="cv-modal-overlay" id="cvModalOverlay" onclick="if(event.target===this)closeCvModal()">
+  <div class="cv-modal" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
+    <button class="cv-modal-close" onclick="closeCvModal()" aria-label="Close">✕</button>
+    <h3 id="cvModalTitle">Which CV are you looking for?</h3>
+    <p>Choose the version that best matches your opportunity.</p>
+    <div class="cv-modal-cards">
+      <div class="cv-modal-card primary">
+        <div class="cv-modal-card-icon">⚙️</div>
+        <span class="cv-modal-badge">★ Current Focus</span>
+        <div class="cv-modal-card-title">Dynamics 365 F&amp;O Developer</div>
+        <div class="cv-modal-card-desc">ERP development, X++, Forms, Tables, Data Entities, OData, Workflows, SSRS.</div>
+        <a href="AhmedHamdyMansour_Dymanics365FO_.pdf" download class="btn-cv" style="justify-content:center;font-size:.82rem;padding:10px 16px">
+          <svg class="arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Download D365 CV</span>
+        </a>
+      </div>
+      <div class="cv-modal-card">
+        <div class="cv-modal-card-icon">🔷</div>
+        <span class="cv-modal-sub">Software Engineering</span>
+        <div class="cv-modal-card-title">.NET Backend Developer</div>
+        <div class="cv-modal-card-desc">C#, ASP.NET Core, Web API, EF Core, SQL Server, JWT, Clean Architecture.</div>
+        <a href="AhmedHamdyMansour_Backend_DotNet_.pdf" download class="btn-ghost" style="justify-content:center;font-size:.82rem;padding:10px 16px">
+          <svg class="arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Download .NET CV</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+
+/* ── CV MODAL ── */
+function openCvModal(){
+  document.getElementById('cvModalOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeCvModal(){
+  document.getElementById('cvModalOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCvModal();});
+
 /* ── CURSOR GLOW (desktop) ── */
 const cg = document.getElementById('cglow');
 if(window.matchMedia('(pointer:fine)').matches){
@@ -478,12 +742,14 @@ if(window.matchMedia('(pointer:fine)').matches){
 const hbg = document.getElementById('hbg');
 const mm  = document.getElementById('mobileMenu');
 hbg.addEventListener('click',()=>{
-  hbg.classList.toggle('open');
-  mm.classList.toggle('open');
-  document.body.style.overflow = mm.classList.contains('open')?'hidden':'';
+  const nowOpen = !hbg.classList.contains('open');
+  hbg.classList.toggle('open', nowOpen);
+  mm.classList.toggle('open', nowOpen);
+  hbg.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
+  document.body.style.overflow = nowOpen ? 'hidden' : '';
 });
-document.querySelectorAll('.m-link,.m-cv').forEach(a=>a.addEventListener('click',()=>{
-  hbg.classList.remove('open');mm.classList.remove('open');document.body.style.overflow='';
+document.querySelectorAll('.m-link').forEach(a=>a.addEventListener('click',()=>{
+  hbg.classList.remove('open');mm.classList.remove('open');hbg.setAttribute('aria-expanded','false');document.body.style.overflow='';
 }));
 
 /* ── NAV SCROLL ── */
@@ -503,7 +769,7 @@ const io2 = new IntersectionObserver(entries=>{
       navAs.forEach(a=>{a.classList.remove('active');if(a.getAttribute('href')==='#'+e.target.id)a.classList.add('active')});
     }
   });
-},{threshold:.4});
+},{threshold:.35});
 sections.forEach(s=>io2.observe(s));
 
 /* ── SCROLL REVEAL ── */
@@ -538,9 +804,9 @@ const cntObs = new IntersectionObserver(entries=>{
     if(!e.isIntersecting)return;
     const el = e.target.querySelector('.snum');
     if(!el)return;
+    if(el.dataset.text){cntObs.unobserve(e.target);return;}
     const target = +el.dataset.target;
     const suffix = el.dataset.suffix||'';
-    if(el.dataset.text){return;}
     let cur=0;
     const step=Math.ceil(target/50);
     const t=setInterval(()=>{cur=Math.min(cur+step,target);el.textContent=cur+suffix;if(cur>=target)clearInterval(t)},30);
@@ -548,19 +814,6 @@ const cntObs = new IntersectionObserver(entries=>{
   });
 },{threshold:.6});
 document.querySelectorAll('.stat').forEach(s=>cntObs.observe(s));
-
-/* ── SKILL BARS ── */
-const barObs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(!e.isIntersecting)return;
-    e.target.querySelectorAll('.sb-fill').forEach(f=>{
-      f.style.width=f.dataset.w+'%';
-    });
-    barObs.unobserve(e.target);
-  });
-},{threshold:.2});
-const sbWrap = document.getElementById('skillBars');
-if(sbWrap) barObs.observe(sbWrap);
 
 /* ── 3D TILT (project cards) ── */
 document.querySelectorAll('.pcard').forEach(card=>{
@@ -578,6 +831,110 @@ document.querySelectorAll('.badge').forEach(b=>{
   b.addEventListener('mouseenter',()=>{b.style.boxShadow='0 0 0 1px rgba(0,200,255,.15),0 4px 22px rgba(0,200,255,.1)';});
   b.addEventListener('mouseleave',()=>{b.style.boxShadow='';});
 });
+
+/* ── CONTACT FORM (Web3Forms) ──
+   Sign up free at https://web3forms.com with ahmedhamdymansour25@gmail.com
+   to get an Access Key, then paste it below. This key is NOT a secret —
+   Web3Forms is designed to have this key exposed in public frontend code. */
+const WEB3FORMS_ACCESS_KEY = 'PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE';
+
+const cform = document.getElementById('contactForm');
+if(cform){
+  const submitBtn = document.getElementById('cformSubmit');
+  const btnText   = submitBtn.querySelector('.cform-btn-text');
+  const status    = document.getElementById('cformStatus');
+  let sending = false;
+
+  function setFieldError(inputId, errId, msg){
+    document.getElementById(inputId).classList.toggle('invalid', !!msg);
+    const errEl = document.getElementById(errId);
+    if(errEl) errEl.textContent = msg;
+  }
+
+  ['cf-name','cf-email','cf-subject','cf-message'].forEach(id=>{
+    document.getElementById(id).addEventListener('input', ()=>{
+      document.getElementById(id).classList.remove('invalid');
+    });
+  });
+
+  function validateContactForm(){
+    let ok = true;
+    const name    = document.getElementById('cf-name').value.trim();
+    const email   = document.getElementById('cf-email').value.trim();
+    const subject = document.getElementById('cf-subject').value.trim();
+    const message = document.getElementById('cf-message').value.trim();
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    setFieldError('cf-name','err-name', name ? '' : 'Name is required');
+    if(!name) ok = false;
+
+    if(!email){ setFieldError('cf-email','err-email','Email is required'); ok=false; }
+    else if(!emailRe.test(email)){ setFieldError('cf-email','err-email','Enter a valid email address'); ok=false; }
+    else setFieldError('cf-email','err-email','');
+
+    setFieldError('cf-subject','err-subject', subject ? '' : 'Subject is required');
+    if(!subject) ok = false;
+
+    setFieldError('cf-message','err-message', message ? '' : 'Message is required');
+    if(!message) ok = false;
+
+    return ok;
+  }
+
+  cform.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    if(sending) return;
+
+    status.textContent = '';
+    status.className = 'cform-status';
+
+    if(!validateContactForm()){
+      status.textContent = 'Please fix the highlighted fields.';
+      status.className = 'cform-status error';
+      return;
+    }
+
+    if(cform.botcheck && cform.botcheck.checked){
+      return;
+    }
+
+    sending = true;
+    submitBtn.disabled = true;
+    btnText.textContent = 'Sending...';
+
+    const payload = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      name: document.getElementById('cf-name').value.trim(),
+      email: document.getElementById('cf-email').value.trim(),
+      subject: document.getElementById('cf-subject').value.trim(),
+      message: document.getElementById('cf-message').value.trim(),
+      from_name: 'ahmedmansour.site — Contact Form'
+    };
+
+    try{
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type':'application/json', 'Accept':'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if(data.success){
+        status.textContent = "Message sent successfully. I'll get back to you soon.";
+        status.className = 'cform-status success';
+        cform.reset();
+      } else {
+        throw new Error(data.message || 'Send failed');
+      }
+    } catch(err){
+      status.textContent = 'Something went wrong. Please try again or contact me directly by email.';
+      status.className = 'cform-status error';
+    } finally {
+      sending = false;
+      submitBtn.disabled = false;
+      btnText.textContent = 'Send Message';
+    }
+  });
+}
 </script>
 </body>
 </html>
