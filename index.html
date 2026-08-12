@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Ahmed Hamdy Mansour — Software Engineer and Dynamics 365 Finance &amp; Operations Developer specializing in X++, ERP development, D365 F&amp;O customization, and .NET backend engineering."/>
-  <title>Ahmed Hamdy Mansour | Dynamics 365 F&amp;O Developer</title>
+  <meta name="description" content="Ahmed Hamdy Mansour — Software Engineer specializing in Dynamics 365 Finance &amp; Operations and X++, with a strong background in .NET backend development using C# and ASP.NET Core."/>
+  <title>Ahmed Hamdy Mansour | Software Engineer | D365 F&amp;O &amp; .NET Backend Developer</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <meta property="og:title" content="Ahmed Hamdy Mansour | Dynamics 365 F&amp;O Developer">
-  <meta property="og:description" content="Software Engineer and Dynamics 365 Finance &amp; Operations Developer specializing in X++, ERP development, D365 F&amp;O customization, and .NET backend engineering.">
+  <meta property="og:title" content="Ahmed Hamdy Mansour | Software Engineer | D365 F&amp;O &amp; .NET Backend Developer">
+  <meta property="og:description" content="Software Engineer specializing in Dynamics 365 Finance &amp; Operations and X++, with a strong background in .NET backend development using C# and ASP.NET Core.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="Ahmed.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ahmed Hamdy Mansour | Dynamics 365 F&amp;O Developer">
-  <meta name="twitter:description" content="Software Engineer and Dynamics 365 Finance &amp; Operations Developer specializing in X++, ERP development, and .NET backend engineering.">
+  <meta name="twitter:title" content="Ahmed Hamdy Mansour | Software Engineer | D365 F&amp;O &amp; .NET Backend Developer">
+  <meta name="twitter:description" content="Software Engineer specializing in Dynamics 365 F&amp;O and X++, with a strong background in .NET backend development.">
   <meta name="twitter:image" content="Ahmed.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -29,42 +29,43 @@
     body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px;opacity:.12;pointer-events:none;z-index:0}
     a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
 
-    /* ── NAV ── */
     nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:12px 5vw;display:flex;align-items:center;justify-content:space-between;background:rgba(11,15,26,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:padding .3s}
     nav.scrolled{padding:8px 5vw}
-    .nav-logo{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--accent);font-weight:500;letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:60vw}
+    .nav-logo{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--accent);font-weight:500;letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:50vw}
     .nav-logo .logo-short{display:none}
     .nav-logo .logo-full{display:inline}
-    .nav-right{display:flex;align-items:center;gap:22px}
-    .nav-links{display:flex;gap:18px;list-style:none;align-items:center}
-    .nav-links a{font-size:.79rem;color:var(--muted);text-decoration:none;transition:color .2s;letter-spacing:.02em}
+    .nav-right{display:flex;align-items:center;gap:20px}
+    .nav-links{display:flex;gap:15px;list-style:none;align-items:center}
+    .nav-links a{font-size:.77rem;color:var(--muted);text-decoration:none;transition:color .2s;letter-spacing:.01em;white-space:nowrap}
     .nav-links a:hover{color:var(--text)}
-    .nav-cv{font-size:.76rem!important;color:var(--accent)!important;border:1px solid var(--accent);padding:5px 13px;border-radius:5px;transition:background .2s,color .2s!important}
+    .nav-cv{font-size:.74rem!important;color:var(--accent)!important;border:1px solid var(--accent);padding:5px 12px;border-radius:5px;transition:background .2s,color .2s!important}
     .nav-cv:hover{background:var(--accent)!important;color:#000!important}
-    /* Mobile hamburger */
+    @media(max-width:1024px){
+      .nav-links{display:none}
+      .hamburger{display:flex}
+    }
     .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:201}
     .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:transform .3s,opacity .3s}
     .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
     .hamburger.open span:nth-child(2){opacity:0}
     .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-    /* Mobile menu */
-    .mobile-menu{display:none;position:fixed;inset:0;top:57px;background:rgba(11,15,26,.97);backdrop-filter:blur(20px);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:26px;overflow-y:auto;padding:30px 0}
+    .mobile-menu{display:none;position:fixed;inset:0;top:57px;background:rgba(11,15,26,.97);backdrop-filter:blur(20px);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:22px;overflow-y:auto;padding:30px 0}
     .mobile-menu.open{display:flex}
-    .mobile-menu a{font-size:1.15rem;color:var(--text);text-decoration:none;transition:color .2s;font-weight:600}
+    .mobile-menu a{font-size:1.08rem;color:var(--text);text-decoration:none;transition:color .2s;font-weight:600}
     .mobile-menu a:hover{color:var(--accent)}
     .mobile-menu .m-cv{color:var(--accent);border:1px solid var(--accent);padding:9px 26px;border-radius:8px;font-size:1rem!important}
 
-    /* ── HERO ── */
     .hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;padding:110px 8vw 70px;z-index:1}
     .hero-glow{position:absolute;top:-150px;left:-100px;width:700px;height:700px;background:radial-gradient(circle,rgba(0,200,255,.07) 0%,transparent 70%);pointer-events:none}
     .hero-glow2{position:absolute;bottom:-100px;right:-50px;width:550px;height:550px;background:radial-gradient(circle,rgba(123,97,255,.06) 0%,transparent 70%);pointer-events:none}
-    .hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;overflow:hidden}
+    .hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;overflow:hidden}
     .hero-eyebrow::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent);flex-shrink:0}
-    .hero h1{font-size:clamp(2.4rem,5vw,4.8rem);font-weight:700;line-height:1.04;margin-bottom:20px;letter-spacing:-.02em}
+    .hero h1{font-size:clamp(2.4rem,5vw,4.8rem);font-weight:700;line-height:1.04;margin-bottom:16px;letter-spacing:-.02em}
     .hero h1 .grad{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero-desc{font-size:.97rem;color:var(--muted);max-width:500px;margin-bottom:30px;line-height:1.82}
+    .hero-subtitle{font-size:1rem;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .hero-subtitle .hs-sep{color:var(--muted);font-weight:400}
+    .hero-desc{font-size:.95rem;color:var(--muted);max-width:520px;margin-bottom:30px;line-height:1.82}
     .hero-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:22px}
-    /* Social row */
     .hero-socials{display:flex;gap:10px;flex-wrap:wrap}
     .soc-btn{width:40px;height:40px;border:1px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--muted);transition:border-color .2s,color .2s,transform .2s,background .2s}
     .soc-btn:hover{transform:translateY(-3px)}
@@ -73,7 +74,6 @@
     .soc-btn.fb:hover{border-color:#1877F2;color:#1877F2;background:rgba(24,119,242,.08)}
     .soc-btn svg{width:17px;height:17px;fill:currentColor}
 
-    /* ── PHOTO ── */
     .hero-photo-wrap{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center}
     .hero-photo-ring{position:relative;width:320px;height:320px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));padding:3px;flex-shrink:0}
     .hero-photo-inner{width:100%;height:100%;border-radius:50%;overflow:hidden;background:var(--card-bg)}
@@ -83,7 +83,6 @@
     .hero-photo-ring::after{content:'';position:absolute;inset:-26px;border-radius:50%;border:1px dashed rgba(123,97,255,.14);animation:spin 48s linear infinite reverse}
     @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
-    /* ── BADGES ── */
     .badge-wrap{position:absolute;right:-30px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px}
     .badge{background:rgba(15,26,43,.95);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:12px;padding:11px 15px;font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:10px;cursor:default;transition:border-color .25s,transform .25s,box-shadow .25s;user-select:none;min-width:168px;white-space:nowrap}
     .badge:hover{border-color:var(--accent);transform:translateX(5px);box-shadow:-5px 0 20px rgba(0,200,255,.12)}
@@ -98,7 +97,6 @@
     .bs{color:var(--muted);font-size:.63rem;margin-top:1px}
     .bico{font-size:.95rem;flex-shrink:0}
 
-    /* ── BUTTONS ── */
     .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#000;padding:11px 24px;border-radius:7px;font-weight:700;font-size:.87rem;text-decoration:none;transition:opacity .2s,transform .2s;white-space:nowrap;border:none;cursor:pointer;font-family:'Space Grotesk',sans-serif}
     .btn-primary:hover{opacity:.85;transform:translateY(-2px)}
     .btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);color:var(--text);padding:11px 24px;border-radius:7px;font-weight:500;font-size:.87rem;text-decoration:none;transition:border-color .2s,transform .2s;white-space:nowrap}
@@ -111,7 +109,6 @@
     .btn-cv .arr{transition:transform .3s}
     .btn-cv:hover .arr{transform:translateY(3px)}
 
-    /* ── STATS ── */
     .stats{position:relative;z-index:1;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 8vw;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
     .stat{padding:0 28px;border-right:1px solid var(--border);text-align:center}
     .stat:first-child{padding-left:0;text-align:left}
@@ -119,24 +116,31 @@
     .snum{font-size:1.85rem;font-weight:700;color:var(--accent);font-family:'JetBrains Mono',monospace;line-height:1}
     .slbl{font-size:.75rem;color:var(--muted);margin-top:4px}
 
-    /* ── SECTION ── */
     section{position:relative;z-index:1;padding:72px 8vw}
     .eyebrow{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.24em;text-transform:uppercase;margin-bottom:10px}
     .sec-title{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;margin-bottom:42px;letter-spacing:-.01em}
 
-    /* ── ABOUT ── */
     .about-wrap{max-width:680px;display:flex;flex-direction:column;gap:16px}
     .about-wrap p{color:var(--muted);font-size:.93rem;line-height:1.85}
     .about-wrap p:first-child{color:var(--text)}
 
-    /* ── D365 SECTION ── */
+    .opp-banner{margin-top:28px;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:18px 22px;display:flex;flex-wrap:wrap;align-items:center;gap:18px;max-width:680px}
+    .opp-label{font-size:.85rem;font-weight:600;color:var(--text);white-space:nowrap}
+    .opp-tracks{display:flex;flex-wrap:wrap;gap:16px}
+    .opp-track{display:flex;align-items:center;gap:8px;font-size:.79rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+    .opp-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+    .opp-dot.cyan{background:var(--accent);box-shadow:0 0 6px var(--accent)}
+    .opp-dot.purple{background:var(--accent2);box-shadow:0 0 6px var(--accent2)}
+
     .d365-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
     .d365-card{background:var(--card-bg);border:1px solid rgba(0,200,255,.22);border-radius:10px;padding:20px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
     .d365-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
     .d365-card:hover{border-color:var(--accent);transform:translateY(-3px)}
     .d365-card-title{font-size:.76rem;font-family:'JetBrains Mono',monospace;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px;font-weight:600}
+    .dotnet-card{border-color:rgba(123,97,255,.24)}
+    .dotnet-card::before{background:linear-gradient(90deg,var(--accent2),var(--accent))}
+    .dotnet-card:hover{border-color:var(--accent2)}
 
-    /* ── PROJECTS ── */
     .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
     .pcard{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:border-color .25s,box-shadow .25s,transform .25s;cursor:default;transform-style:preserve-3d}
     .pcard:hover{border-color:var(--accent);box-shadow:0 12px 40px rgba(0,200,255,.07)}
@@ -149,14 +153,12 @@
     .tag{background:var(--tag-bg);color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.66rem;padding:3px 9px;border-radius:4px;border:1px solid var(--border);transition:border-color .2s,color .2s;cursor:default}
     .tag:hover{border-color:var(--accent);color:var(--accent)}
 
-    /* ── SKILLS ── */
     .sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
     .sgroup{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:20px;transition:border-color .2s,transform .2s}
     .sgroup:hover{border-color:rgba(123,97,255,.4);transform:translateY(-2px)}
     .sgtitle{font-size:.69rem;font-family:'JetBrains Mono',monospace;color:var(--accent2);letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px;font-weight:600}
     .slist{display:flex;flex-wrap:wrap;gap:7px}
 
-    /* ── TIMELINE ── */
     .timeline{position:relative;padding-left:30px}
     .timeline::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--accent),var(--accent2),rgba(30,45,64,.3))}
     .titem{position:relative;margin-bottom:36px;padding:20px;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;transition:border-color .25s,transform .25s}
@@ -172,7 +174,6 @@
     .titem-primary::before{width:11px;height:11px;left:-35px;top:23px;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 16px var(--accent)}
     .partner-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,200,255,.12);color:var(--accent);font-size:.66rem;font-family:'JetBrains Mono',monospace;padding:4px 11px;border-radius:99px;margin-bottom:12px;letter-spacing:.03em}
 
-    /* ── CERTS ── */
     .cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
     .ccard{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start;transition:border-color .2s,transform .2s}
     .ccard:hover{border-color:var(--accent2);transform:translateY(-3px)}
@@ -180,7 +181,6 @@
     .ctitle{font-size:.91rem;font-weight:600;margin-bottom:5px}
     .cdesc{font-size:.8rem;color:var(--muted);line-height:1.65}
 
-    /* ── CV CARDS ── */
     .cv-cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:820px}
     .cv-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:12px;position:relative;transition:border-color .25s,transform .25s,box-shadow .25s}
     .cv-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,200,255,.08)}
@@ -194,7 +194,6 @@
     .cv-card-desc{font-size:.82rem;color:var(--muted);line-height:1.68;flex:1}
     .cv-dl-btn{width:100%;justify-content:center;margin-top:4px}
 
-    /* ── CV MODAL ── */
     .cv-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(8px);z-index:500;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s}
     .cv-modal-overlay.open{opacity:1;pointer-events:all}
     .cv-modal{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;width:100%;max-width:600px;position:relative;transform:translateY(16px);transition:transform .25s;max-height:88vh;overflow-y:auto}
@@ -213,13 +212,11 @@
     .cv-modal-badge{display:inline-block;background:rgba(0,200,255,.12);color:var(--accent);font-size:.6rem;font-family:'JetBrains Mono',monospace;padding:2px 8px;border-radius:99px;margin-bottom:2px}
     .cv-modal-sub{font-size:.62rem;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
 
-    /* ── FOOTER CV LINKS ── */
     .footer-cv-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
     .footer-cv-link{display:inline-flex;align-items:center;gap:6px;font-size:.73rem;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:4px 12px;border-radius:5px;transition:border-color .2s,color .2s}
     .footer-cv-link:hover{border-color:var(--accent);color:var(--accent)}
     .footer-cv-primary{color:var(--accent);border-color:rgba(0,200,255,.3)}
 
-    /* ── CONTACT ── */
     .contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:44px;align-items:start}
     .contact-info p{color:var(--muted);font-size:.9rem;line-height:1.78;margin-bottom:26px}
     .clinks{display:flex;flex-direction:column;gap:11px}
@@ -242,33 +239,26 @@
     .cform-status.success{color:#22c55e}
     .cform-status.error{color:#f87171}
 
-    /* ── FOOTER ── */
     footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:20px 8vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:.74rem;color:var(--muted)}
     .fsoc{display:flex;gap:9px}
     .fs{width:30px;height:30px;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--muted);transition:border-color .2s,color .2s;font-size:13px}
     .fs:hover{border-color:var(--accent);color:var(--accent)}
     .fs svg{width:13px;height:13px;fill:currentColor}
 
-    /* ── REVEAL ── */
     .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
     .reveal.up{opacity:1;transform:none}
 
-    /* ── CURSOR GLOW (desktop only) ── */
     .cglow{position:fixed;pointer-events:none;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(0,200,255,.04) 0%,transparent 70%);transform:translate(-50%,-50%);z-index:0;transition:left .08s,top .08s}
 
-    /* ── SCROLL TO TOP ── */
     .s2t{position:fixed;bottom:24px;right:24px;width:42px;height:42px;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:150;opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s,border-color .2s;color:var(--muted)}
     .s2t.show{opacity:1;transform:none}
     .s2t:hover{border-color:var(--accent);color:var(--accent)}
     .s2t svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 
-    /* ── ACTIVE NAV ── */
     .nav-links a.active{color:var(--accent)}
 
-    /* ═══ RESPONSIVE ═══ */
     @media(max-width:1100px){
       .badge-wrap{right:-10px}
-      .nav-links{gap:14px}
     }
     @media(max-width:960px){
       .hero{grid-template-columns:1fr;padding-top:90px;padding-bottom:50px;text-align:center;gap:0}
@@ -278,21 +268,22 @@
       .hero-desc{max-width:100%}
       .hero-cta{justify-content:center}
       .hero-eyebrow{justify-content:center}
+      .hero-subtitle{justify-content:center}
       .hero-socials{justify-content:center}
       .badge-wrap{position:static;transform:none;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:14px;width:100%}
       .badge{min-width:0;flex:0 1 auto;justify-content:flex-start;transform:none !important;white-space:nowrap;padding:9px 13px}
       .badge:hover{transform:translateY(-2px) !important;box-shadow:0 4px 14px rgba(0,200,255,.12) !important}
       .contact-grid{grid-template-columns:1fr;gap:32px}
+      .about-wrap,.opp-banner{margin-left:auto;margin-right:auto}
     }
     @media(max-width:700px){
       .nav-logo{font-size:.75rem;letter-spacing:.02em;max-width:55vw}
       .nav-logo .logo-full{display:none}
       .nav-logo .logo-short{display:inline}
-      .nav-links{display:none}
-      .hamburger{display:flex}
       .hero{padding:80px 4vw 40px}
       .hero h1{font-size:2.4rem}
       .hero-eyebrow{font-size:.62rem;letter-spacing:.1em}
+      .hero-subtitle{font-size:.88rem}
       .hero-photo-ring{width:180px;height:180px}
       .hero-photo-ring::before{inset:-9px}
       .hero-photo-ring::after{inset:-18px}
@@ -305,7 +296,7 @@
       .stat:nth-child(odd){border-right:1px solid var(--border)}
       .stat:nth-last-child(-n+2){border-bottom:none}
       .snum{font-size:1.5rem}
-      .cwrap{padding:22px 18px}
+      .opp-banner{flex-direction:column;align-items:flex-start;gap:12px}
       .footer-cv-links{justify-content:center}
       footer{flex-direction:column;align-items:center;text-align:center;gap:12px;padding:18px 4vw}
       .timeline{padding-left:20px}
@@ -338,7 +329,6 @@
   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
-<!-- NAV -->
 <nav id="navbar" aria-label="Primary navigation">
   <div class="nav-logo">
     <span class="logo-full">ahmed.hamdy_</span>
@@ -348,6 +338,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#d365">D365 F&amp;O</a></li>
+      <li><a href="#dotnet">.NET Backend</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -361,10 +352,10 @@
   </div>
 </nav>
 
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" class="m-link">About</a>
   <a href="#d365" class="m-link">D365 F&amp;O</a>
+  <a href="#dotnet" class="m-link">.NET Backend</a>
   <a href="#experience" class="m-link">Experience</a>
   <a href="#projects" class="m-link">Projects</a>
   <a href="#skills" class="m-link">Skills</a>
@@ -373,15 +364,19 @@
   <a href="#contact" class="m-link">Contact</a>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
 
   <div class="hero-inner">
-    <div class="hero-eyebrow" id="heroLabel">Dynamics 365 F&amp;O Developer</div>
+    <div class="hero-eyebrow" id="heroLabel">Software Engineer</div>
     <h1>Ahmed<br><span class="grad">Hamdy</span><br>Mansour</h1>
-    <p class="hero-desc">Developing and customizing enterprise ERP solutions with Microsoft Dynamics 365 Finance &amp; Operations and X++, backed by a strong foundation in .NET backend development.</p>
+    <div class="hero-subtitle reveal">
+      <span style="color:var(--accent)">Dynamics 365 F&amp;O Developer</span>
+      <span class="hs-sep">|</span>
+      <span style="color:var(--accent2)">.NET Backend Developer</span>
+    </div>
+    <p class="hero-desc">Software Engineer specializing in Microsoft Dynamics 365 Finance &amp; Operations and X++, with a strong background in .NET backend development. Currently developing my career in D365 F&amp;O while remaining open to full-time opportunities in both D365 F&amp;O and .NET backend engineering.</p>
     <div class="hero-cta">
       <a href="#contact" class="btn-primary">✉ Get In Touch</a>
       <a href="#experience" class="btn-ghost">View Experience</a>
@@ -403,33 +398,38 @@
     </div>
   </div>
 
-  <!-- PHOTO + BADGES -->
   <div class="hero-photo-wrap">
     <div class="hero-photo-ring">
       <div class="hero-photo-inner">
-        <img src="Ahmed.png" alt="Ahmed Hamdy Mansour — Dynamics 365 F&amp;O Developer" loading="eager"/>
+        <img src="Ahmed.png" alt="Ahmed Hamdy Mansour — Software Engineer, Dynamics 365 F&amp;O and .NET Backend Developer" loading="eager"/>
       </div>
     </div>
     <div class="badge-wrap">
-      <div class="badge"><div class="bdot g"></div><div class="btext"><span class="bt">Open to Work</span><span class="bs">Available for full-time roles</span></div></div>
-      <div class="badge"><div class="bico">🎓</div><div class="btext"><span class="bt">CS Graduate</span><span class="bs">Menoufia University · 2025</span></div></div>
-      <div class="badge"><div class="bdot p"></div><div class="btext"><span class="bt">D365 F&amp;O Developer</span><span class="bs">Current Role</span></div></div>
+      <div class="badge"><div class="bdot g"></div><div class="btext"><span class="bt">Open to Work</span><span class="bs">Full-time opportunities</span></div></div>
+      <div class="badge"><div class="bdot b"></div><div class="btext"><span class="bt">D365 F&amp;O Developer</span><span class="bs">Current Role</span></div></div>
+      <div class="badge"><div class="bdot p"></div><div class="btext"><span class="bt">.NET Backend Developer</span><span class="bs">Strong Backend Background</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="eyebrow reveal">Introduction</div>
   <h2 class="sec-title reveal">About Me</h2>
   <div class="about-wrap reveal">
-    <p>I'm a Computer Science graduate from Menoufia University and a Software Engineer currently developing my career in Microsoft Dynamics 365 Finance &amp; Operations.</p>
-    <p>I currently work as an ERP Dynamics 365 F&amp;O Developer Intern at Cubic Information Systems, a Microsoft Dynamics 365 Partner, where I work with X++ and D365 F&amp;O development and customization.</p>
-    <p>My background in .NET backend development gives me a strong foundation in APIs, databases, authentication, architecture, and software engineering, which I bring into my ERP development journey.</p>
+    <p>I'm a Computer Science graduate from Menoufia University and a Software Engineer with a background in backend development and current hands-on experience in Microsoft Dynamics 365 Finance &amp; Operations.</p>
+    <p>I currently work as an ERP Dynamics 365 F&amp;O Developer Intern at Cubic Information Systems, a Microsoft Dynamics 365 Partner, where I work with X++, D365 F&amp;O development, and customization.</p>
+    <p>Before moving into D365 F&amp;O, I built a strong foundation in .NET backend development using C#, ASP.NET Core, Web APIs, Entity Framework Core, databases, authentication, and software architecture.</p>
+    <p>I am currently open to full-time opportunities in either Dynamics 365 F&amp;O / X++ development or .NET backend development.</p>
+  </div>
+  <div class="opp-banner reveal">
+    <div class="opp-label">💼 Open to Full-Time Opportunities</div>
+    <div class="opp-tracks">
+      <div class="opp-track"><span class="opp-dot cyan"></span>Dynamics 365 F&amp;O / X++</div>
+      <div class="opp-track"><span class="opp-dot purple"></span>.NET Backend Development</div>
+    </div>
   </div>
 </section>
 
-<!-- STATS -->
 <div class="stats">
   <div class="stat reveal"><div class="snum" data-target="300" data-suffix="+">0</div><div class="slbl">Problems Solved</div></div>
   <div class="stat reveal"><div class="snum" data-target="20" data-suffix="+">0</div><div class="slbl">API Endpoints / Project</div></div>
@@ -437,9 +437,8 @@
   <div class="stat reveal"><div class="snum" data-text="yes">2025</div><div class="slbl">Computer Science Graduate</div></div>
 </div>
 
-<!-- D365 F&O -->
 <section id="d365" style="background:linear-gradient(180deg, rgba(0,200,255,.045), transparent 65%);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-  <div class="eyebrow reveal">Current Focus</div>
+  <div class="eyebrow reveal">Current Role</div>
   <h2 class="sec-title reveal" style="margin-bottom:6px">Dynamics 365 Finance &amp; Operations</h2>
   <div class="reveal" style="color:var(--accent2);font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px">ERP Development &amp; Customization</div>
   <p class="reveal" style="color:var(--muted);font-size:.9rem;max-width:620px;margin-bottom:36px;line-height:1.75">Hands-on experience developing and customizing Microsoft Dynamics 365 Finance &amp; Operations solutions using X++, gained through my internship at a Microsoft Dynamics 365 Partner.</p>
@@ -468,7 +467,36 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
+<section id="dotnet" style="background:linear-gradient(180deg, rgba(123,97,255,.05), transparent 65%);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="eyebrow reveal" style="color:var(--accent2)">Strong Background</div>
+  <h2 class="sec-title reveal" style="margin-bottom:6px">.NET Backend Development</h2>
+  <div class="reveal" style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px">Strong Software Engineering Foundation</div>
+  <p class="reveal" style="color:var(--muted);font-size:.9rem;max-width:620px;margin-bottom:36px;line-height:1.75">Strong hands-on background in backend development using C#, ASP.NET Core, Web API, Entity Framework Core, databases, authentication, APIs, and software architecture.</p>
+
+  <div class="d365-grid reveal">
+    <div class="d365-card dotnet-card">
+      <h3 class="d365-card-title" style="color:var(--accent2)"><span>🔷</span> Backend</h3>
+      <div class="slist"><span class="tag">C#</span><span class="tag">ASP.NET Core</span><span class="tag">Web API</span><span class="tag">RESTful APIs</span><span class="tag">Entity Framework Core</span></div>
+    </div>
+    <div class="d365-card dotnet-card">
+      <h3 class="d365-card-title" style="color:var(--accent2)"><span>🏛️</span> Architecture</h3>
+      <div class="slist"><span class="tag">SOLID</span><span class="tag">Clean Architecture</span><span class="tag">Onion Architecture</span><span class="tag">Repository Pattern</span><span class="tag">Unit of Work</span><span class="tag">Dependency Injection</span><span class="tag">Design Patterns</span></div>
+    </div>
+    <div class="d365-card dotnet-card">
+      <h3 class="d365-card-title" style="color:var(--accent2)"><span>🔐</span> Security</h3>
+      <div class="slist"><span class="tag">JWT</span><span class="tag">OAuth 2.0</span><span class="tag">ASP.NET Identity</span><span class="tag">RBAC</span></div>
+    </div>
+    <div class="d365-card dotnet-card">
+      <h3 class="d365-card-title" style="color:var(--accent2)"><span>🗄️</span> Databases</h3>
+      <div class="slist"><span class="tag">SQL Server</span><span class="tag">MySQL</span><span class="tag">PostgreSQL</span></div>
+    </div>
+    <div class="d365-card dotnet-card">
+      <h3 class="d365-card-title" style="color:var(--accent2)"><span>🛠️</span> Tools</h3>
+      <div class="slist"><span class="tag">Swagger / OpenAPI</span><span class="tag">Postman</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Serilog</span><span class="tag">DBeaver</span></div>
+    </div>
+  </div>
+</section>
+
 <section id="experience">
   <div class="eyebrow reveal">Journey</div>
   <h2 class="sec-title reveal">Experience &amp; Education</h2>
@@ -486,6 +514,7 @@
       <h3 class="trole">.NET Core Backend Developer — Intern</h3>
       <div class="tco">KGE Technologies PVT LTD · Remote</div>
       <div class="tdesc">Developed and improved a Community Management API using ASP.NET Core Web API. Implemented JWT authentication, social login, role management, and events &amp; posts modules. Managed databases with EF Core, MySQL, and DBeaver. Optimized APIs for performance, security, and stability.</div>
+      <div class="tags" style="margin-top:12px"><span class="tag">C#</span><span class="tag">ASP.NET Core</span><span class="tag">EF Core</span><span class="tag">JWT</span><span class="tag">MySQL</span></div>
     </div>
     <div class="titem reveal">
       <div class="tdate">2021 – 2025</div>
@@ -496,11 +525,10 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
-  <div class="eyebrow reveal">Software Engineering</div>
+  <div class="eyebrow reveal">.NET Backend Projects</div>
   <h2 class="sec-title reveal" style="margin-bottom:14px">Featured Projects</h2>
-  <p class="reveal" style="color:var(--muted);font-size:.87rem;max-width:580px;margin-bottom:36px;line-height:1.7">Backend engineering projects built with ASP.NET Core — my Dynamics 365 F&amp;O experience is featured under Professional Experience above.</p>
+  <p class="reveal" style="color:var(--muted);font-size:.87rem;max-width:580px;margin-bottom:36px;line-height:1.7">Backend engineering projects showcasing my .NET development skills — built with ASP.NET Core, EF Core, and modern API design.</p>
   <div class="pgrid">
     <div class="pcard reveal">
       <span class="pbadge"><a href="https://lungora.runasp.net/swagger/index.html" target="_blank" rel="noopener">LIVE · 2025</a></span>
@@ -532,13 +560,12 @@
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="eyebrow reveal">Toolkit</div>
   <h2 class="sec-title reveal">Skills &amp; Technologies</h2>
   <div class="sgrid">
     <div class="sgroup reveal"><h3 class="sgtitle">Dynamics 365 F&amp;O</h3><div class="slist"><span class="tag">Microsoft Dynamics 365 F&amp;O</span><span class="tag">X++</span><span class="tag">Extensions &amp; Customization</span><span class="tag">Forms</span><span class="tag">Tables</span><span class="tag">Classes</span><span class="tag">Data Entities</span><span class="tag">OData Services</span><span class="tag">APIs</span><span class="tag">Workflows</span><span class="tag">Security</span><span class="tag">Roles</span><span class="tag">Duties</span><span class="tag">Privileges</span><span class="tag">SSRS Reports</span><span class="tag">Batch Jobs</span></div></div>
-    <div class="sgroup reveal"><h3 class="sgtitle">Backend Development</h3><div class="slist"><span class="tag">C#</span><span class="tag">ASP.NET Core Web API</span><span class="tag">ASP.NET Core MVC</span><span class="tag">Entity Framework Core</span><span class="tag">LINQ</span><span class="tag">RESTful APIs</span><span class="tag">JWT</span><span class="tag">OAuth 2.0</span><span class="tag">ASP.NET Identity</span><span class="tag">RBAC</span></div></div>
+    <div class="sgroup reveal"><h3 class="sgtitle">.NET Backend Development</h3><div class="slist"><span class="tag">C#</span><span class="tag">ASP.NET Core Web API</span><span class="tag">ASP.NET Core MVC</span><span class="tag">Entity Framework Core</span><span class="tag">LINQ</span><span class="tag">RESTful APIs</span><span class="tag">JWT</span><span class="tag">OAuth 2.0</span><span class="tag">ASP.NET Identity</span><span class="tag">RBAC</span></div></div>
     <div class="sgroup reveal"><h3 class="sgtitle">Architecture &amp; Engineering</h3><div class="slist"><span class="tag">OOP</span><span class="tag">SOLID Principles</span><span class="tag">Design Patterns</span><span class="tag">Clean Architecture</span><span class="tag">Onion Architecture</span><span class="tag">Repository Pattern</span><span class="tag">Unit of Work</span><span class="tag">CQRS</span><span class="tag">Dependency Injection</span></div></div>
     <div class="sgroup reveal"><h3 class="sgtitle">Databases</h3><div class="slist"><span class="tag">Microsoft SQL Server</span><span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">DBeaver</span></div></div>
     <div class="sgroup reveal"><h3 class="sgtitle">Tools</h3><div class="slist"><span class="tag">Visual Studio</span><span class="tag">Azure DevOps</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Swagger / OpenAPI</span><span class="tag">Postman</span><span class="tag">Jira</span><span class="tag">Serilog</span><span class="tag">Logging</span></div></div>
@@ -546,7 +573,6 @@
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
 <section id="certs" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="eyebrow reveal">Achievements</div>
   <h2 class="sec-title reveal">Certifications &amp; Highlights</h2>
@@ -560,19 +586,16 @@
   </div>
 </section>
 
-<!-- CV SECTION -->
 <section id="cv-section" style="border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="eyebrow reveal">Resume</div>
   <h2 class="sec-title reveal">Choose Your CV</h2>
-  <p class="reveal" style="color:var(--muted);font-size:.92rem;max-width:540px;margin-bottom:36px;line-height:1.75">
-    Looking for a specific role? Choose the CV that best matches the opportunity.
-    <strong style="color:var(--text)"> D365 F&amp;O is my current career focus</strong>, while .NET Backend Development represents my strong software engineering foundation.
+  <p class="reveal" style="color:var(--muted);font-size:.92rem;max-width:580px;margin-bottom:36px;line-height:1.75">
+    Choose the CV that best matches the opportunity. I am currently working in Dynamics 365 F&amp;O while maintaining a strong professional background in .NET backend development, and I am open to full-time opportunities in either track.
   </p>
   <div class="cv-cards reveal">
 
-    <!-- D365 CV — PRIMARY -->
     <div class="cv-card cv-primary">
-      <div class="cv-card-badge">★ Current Focus</div>
+      <div class="cv-card-badge">★ Current Role</div>
       <div class="cv-card-icon">⚙️</div>
       <h3 class="cv-card-title">Dynamics 365 F&amp;O Developer</h3>
       <div class="cv-card-sub">ERP Development</div>
@@ -586,11 +609,10 @@
       </a>
     </div>
 
-    <!-- .NET CV -->
     <div class="cv-card">
       <div class="cv-card-icon">🔷</div>
       <h3 class="cv-card-title">.NET Backend Developer</h3>
-      <div class="cv-card-sub">Backend Engineering</div>
+      <div class="cv-card-sub">Backend Development</div>
       <div class="cv-card-tags">
         <span class="tag">C#</span><span class="tag">ASP.NET Core</span><span class="tag">Web API</span><span class="tag">EF Core</span><span class="tag">SQL</span><span class="tag">JWT</span>
       </div>
@@ -604,14 +626,13 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="eyebrow reveal">Get In Touch</div>
   <h2 class="sec-title reveal">Let's Build Something Together</h2>
 
   <div class="contact-grid reveal">
     <div class="contact-info">
-      <p>Have an opportunity, project, or question? Send me a message and I'll get back to you as soon as I can.</p>
+      <p>Have a full-time opportunity in Dynamics 365 F&amp;O, .NET backend development, or a related software engineering role? I'd be happy to connect.</p>
       <div class="clinks">
         <a href="mailto:ahmedhamdymansour25@gmail.com" class="clink"><div class="cico2">✉</div>ahmedhamdymansour25@gmail.com</a>
         <a href="tel:+201017373711" class="clink"><div class="cico2">📞</div>+20 101 737 3711</a>
@@ -663,11 +684,10 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div style="display:flex;flex-direction:column;gap:4px">
     <span style="font-weight:600;color:var(--text)">Ahmed Hamdy Mansour</span>
-    <span style="font-size:.72rem">Software Engineer | Dynamics 365 F&amp;O Developer</span>
+    <span style="font-size:.72rem">Software Engineer — D365 F&amp;O Developer | .NET Backend Developer</span>
   </div>
   <div class="footer-cv-links">
     <a href="AhmedHamdyMansour(Dymanics365FO).pdf" download class="footer-cv-link footer-cv-primary">
@@ -688,7 +708,6 @@
   <span style="font-family:'JetBrains Mono',monospace;font-size:.7rem">Cairo, Egypt</span>
 </footer>
 
-<!-- CV MODAL -->
 <div class="cv-modal-overlay" id="cvModalOverlay" onclick="if(event.target===this)closeCvModal()">
   <div class="cv-modal" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
     <button class="cv-modal-close" onclick="closeCvModal()" aria-label="Close">✕</button>
@@ -697,7 +716,7 @@
     <div class="cv-modal-cards">
       <div class="cv-modal-card primary">
         <div class="cv-modal-card-icon">⚙️</div>
-        <span class="cv-modal-badge">★ Current Focus</span>
+        <span class="cv-modal-badge">★ Current Role</span>
         <div class="cv-modal-card-title">Dynamics 365 F&amp;O Developer</div>
         <div class="cv-modal-card-desc">ERP development, X++, Forms, Tables, Data Entities, OData, Workflows, SSRS.</div>
         <a href="AhmedHamdyMansour(Dymanics365FO).pdf" download class="btn-cv" style="justify-content:center;font-size:.82rem;padding:10px 16px">
@@ -707,7 +726,7 @@
       </div>
       <div class="cv-modal-card">
         <div class="cv-modal-card-icon">🔷</div>
-        <span class="cv-modal-sub">Software Engineering</span>
+        <span class="cv-modal-sub">Backend Development</span>
         <div class="cv-modal-card-title">.NET Backend Developer</div>
         <div class="cv-modal-card-desc">C#, ASP.NET Core, Web API, EF Core, SQL Server, JWT, Clean Architecture.</div>
         <a href="AhmedHamdyMansour(Backend DotNet).pdf" download class="btn-ghost" style="justify-content:center;font-size:.82rem;padding:10px 16px">
@@ -721,7 +740,6 @@
 
 <script>
 
-/* ── CV MODAL ── */
 function openCvModal(){
   document.getElementById('cvModalOverlay').classList.add('open');
   document.body.style.overflow='hidden';
@@ -730,158 +748,188 @@ function closeCvModal(){
   document.getElementById('cvModalOverlay').classList.remove('open');
   document.body.style.overflow='';
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCvModal();});
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCvModal(); });
 
-/* ── CURSOR GLOW (desktop) ── */
-const cg = document.getElementById('cglow');
+var cg = document.getElementById('cglow');
 if(window.matchMedia('(pointer:fine)').matches){
-  document.addEventListener('mousemove',e=>{cg.style.left=e.clientX+'px';cg.style.top=e.clientY+'px'});
-} else { cg.style.display='none'; }
+  document.addEventListener('mousemove', function(e){ cg.style.left = e.clientX + 'px'; cg.style.top = e.clientY + 'px'; });
+} else {
+  cg.style.display = 'none';
+}
 
-/* ── HAMBURGER ── */
-const hbg = document.getElementById('hbg');
-const mm  = document.getElementById('mobileMenu');
-hbg.addEventListener('click',()=>{
-  const nowOpen = !hbg.classList.contains('open');
+var hbg = document.getElementById('hbg');
+var mm  = document.getElementById('mobileMenu');
+hbg.addEventListener('click', function(){
+  var nowOpen = !hbg.classList.contains('open');
   hbg.classList.toggle('open', nowOpen);
   mm.classList.toggle('open', nowOpen);
   hbg.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
   document.body.style.overflow = nowOpen ? 'hidden' : '';
 });
-document.querySelectorAll('.m-link').forEach(a=>a.addEventListener('click',()=>{
-  hbg.classList.remove('open');mm.classList.remove('open');hbg.setAttribute('aria-expanded','false');document.body.style.overflow='';
-}));
+document.querySelectorAll('.m-link').forEach(function(a){
+  a.addEventListener('click', function(){
+    hbg.classList.remove('open');
+    mm.classList.remove('open');
+    hbg.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  });
+});
 
-/* ── NAV SCROLL ── */
-const navbar = document.getElementById('navbar');
-const s2t    = document.getElementById('s2t');
-window.addEventListener('scroll',()=>{
+var navbar = document.getElementById('navbar');
+var s2t    = document.getElementById('s2t');
+window.addEventListener('scroll', function(){
   navbar.classList.toggle('scrolled', window.scrollY > 60);
   s2t.classList.toggle('show', window.scrollY > 400);
-},{passive:true});
+}, {passive:true});
 
-/* ── ACTIVE NAV ── */
-const sections = document.querySelectorAll('section[id]');
-const navAs    = document.querySelectorAll('.nav-links a');
-const io2 = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
+var sections = document.querySelectorAll('section[id]');
+var navAs    = document.querySelectorAll('.nav-links a');
+var io2 = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
     if(e.isIntersecting){
-      navAs.forEach(a=>{a.classList.remove('active');if(a.getAttribute('href')==='#'+e.target.id)a.classList.add('active')});
+      navAs.forEach(function(a){
+        a.classList.remove('active');
+        if(a.getAttribute('href') === '#' + e.target.id) a.classList.add('active');
+      });
     }
   });
-},{threshold:.35});
-sections.forEach(s=>io2.observe(s));
+}, {threshold:.35});
+sections.forEach(function(s){ io2.observe(s); });
 
-/* ── SCROLL REVEAL ── */
-const revObs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('up')});
-},{threshold:.08});
-document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+var revObs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('up'); });
+}, {threshold:.08});
+document.querySelectorAll('.reveal').forEach(function(el){ revObs.observe(el); });
 
-/* ── TYPING ANIMATION ── */
-const lbl = document.getElementById('heroLabel');
+var lbl = document.getElementById('heroLabel');
 if(lbl){
-  const txt = lbl.textContent.trim();
-  lbl.innerHTML='';
-  const line = document.createElement('span');
-  line.style.cssText='display:inline-block;width:28px;height:1px;background:var(--accent);flex-shrink:0';
-  const sp   = document.createElement('span');
-  const cur  = document.createElement('span');
-  cur.textContent='|';
-  cur.style.cssText='color:var(--accent);animation:blink .7s step-end infinite';
-  const style=document.createElement('style');
-  style.textContent='@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}';
+  var txt = lbl.textContent.trim();
+  lbl.innerHTML = '';
+  var line = document.createElement('span');
+  line.style.cssText = 'display:inline-block;width:28px;height:1px;background:var(--accent);flex-shrink:0';
+  var sp   = document.createElement('span');
+  var cur  = document.createElement('span');
+  cur.textContent = '|';
+  cur.style.cssText = 'color:var(--accent);animation:blink .7s step-end infinite';
+  var style = document.createElement('style');
+  style.textContent = '@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}';
   document.head.appendChild(style);
-  lbl.append(line,sp,cur);
-  let i=0;
-  function type(){if(i<txt.length){sp.textContent+=txt[i++];setTimeout(type,65);}else{setTimeout(()=>cur.remove(),800);}}
-  setTimeout(type,800);
+  lbl.appendChild(line);
+  lbl.appendChild(sp);
+  lbl.appendChild(cur);
+  var i = 0;
+  function typeChar(){
+    if(i < txt.length){
+      sp.textContent += txt[i++];
+      setTimeout(typeChar, 65);
+    } else {
+      setTimeout(function(){ cur.remove(); }, 800);
+    }
+  }
+  setTimeout(typeChar, 800);
 }
 
-/* ── COUNTER ── */
-const cntObs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(!e.isIntersecting)return;
-    const el = e.target.querySelector('.snum');
-    if(!el)return;
-    if(el.dataset.text){cntObs.unobserve(e.target);return;}
-    const target = +el.dataset.target;
-    const suffix = el.dataset.suffix||'';
-    let cur=0;
-    const step=Math.ceil(target/50);
-    const t=setInterval(()=>{cur=Math.min(cur+step,target);el.textContent=cur+suffix;if(cur>=target)clearInterval(t)},30);
+function animateCount(el, target, suffix){
+  var current = 0;
+  var step = Math.ceil(target / 50);
+  var t = setInterval(function(){
+    current = Math.min(current + step, target);
+    el.textContent = current + suffix;
+    if(current >= target) clearInterval(t);
+  }, 30);
+}
+var cntObs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(!e.isIntersecting) return;
+    var el = e.target.querySelector('.snum');
+    if(!el) return;
+    if(el.dataset.text){ cntObs.unobserve(e.target); return; }
+    var target = +el.dataset.target;
+    var suffix = el.dataset.suffix || '';
+    animateCount(el, target, suffix);
     cntObs.unobserve(e.target);
   });
-},{threshold:.6});
-document.querySelectorAll('.stat').forEach(s=>cntObs.observe(s));
+}, {threshold:.6});
+document.querySelectorAll('.stat').forEach(function(s){ cntObs.observe(s); });
 
-/* ── 3D TILT (project cards) ── */
-document.querySelectorAll('.pcard').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const r=card.getBoundingClientRect();
-    const x=(e.clientX-r.left)/r.width-.5;
-    const y=(e.clientY-r.top)/r.height-.5;
-    card.style.transform=`perspective(700px) translateY(-5px) rotateX(${-y*7}deg) rotateY(${x*7}deg)`;
+document.querySelectorAll('.pcard').forEach(function(card){
+  card.addEventListener('mousemove', function(e){
+    var r = card.getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width - 0.5;
+    var y = (e.clientY - r.top) / r.height - 0.5;
+    card.style.transform = 'perspective(700px) translateY(-5px) rotateX(' + (-y*7) + 'deg) rotateY(' + (x*7) + 'deg)';
   });
-  card.addEventListener('mouseleave',()=>{card.style.transform='';});
+  card.addEventListener('mouseleave', function(){ card.style.transform = ''; });
 });
 
-/* ── BADGE RIPPLE ── */
-document.querySelectorAll('.badge').forEach(b=>{
-  b.addEventListener('mouseenter',()=>{b.style.boxShadow='0 0 0 1px rgba(0,200,255,.15),0 4px 22px rgba(0,200,255,.1)';});
-  b.addEventListener('mouseleave',()=>{b.style.boxShadow='';});
+document.querySelectorAll('.badge').forEach(function(b){
+  b.addEventListener('mouseenter', function(){ b.style.boxShadow = '0 0 0 1px rgba(0,200,255,.15), 0 4px 22px rgba(0,200,255,.1)'; });
+  b.addEventListener('mouseleave', function(){ b.style.boxShadow = ''; });
 });
 
-/* ── CONTACT FORM (Web3Forms) ──
-   Sign up free at https://web3forms.com with ahmedhamdymansour25@gmail.com
-   to get an Access Key, then paste it below. This key is NOT a secret —
-   Web3Forms is designed to have this key exposed in public frontend code. */
-const WEB3FORMS_ACCESS_KEY = 'PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE';
+/* ══════════════════════════════════════════════════════════════════
+   CONTACT FORM — Web3Forms integration
+   ACTION REQUIRED:
+   1. Go to https://web3forms.com and enter ahmedhamdymansour25@gmail.com
+   2. You will receive a free Access Key by email — copy it.
+   3. Paste it below, replacing f381504a-ee72-4b10-a94b-8625e9b035fc.
+   This key is NOT a secret — Web3Forms is designed for it to be visible
+   in public frontend code (similar to a Formspree form ID). Until a
+   real key is added, the form will show a clear configuration notice
+   instead of silently failing.
+   ══════════════════════════════════════════════════════════════════ */
+var WEB3FORMS_ACCESS_KEY = 'f381504a-ee72-4b10-a94b-8625e9b035fc';
 
-const cform = document.getElementById('contactForm');
+var cform = document.getElementById('contactForm');
 if(cform){
-  const submitBtn = document.getElementById('cformSubmit');
-  const btnText   = submitBtn.querySelector('.cform-btn-text');
-  const status    = document.getElementById('cformStatus');
-  let sending = false;
+  var submitBtn = document.getElementById('cformSubmit');
+  var btnText   = submitBtn.querySelector('.cform-btn-text');
+  var status    = document.getElementById('cformStatus');
+  var sending = false;
 
   function setFieldError(inputId, errId, msg){
     document.getElementById(inputId).classList.toggle('invalid', !!msg);
-    const errEl = document.getElementById(errId);
+    var errEl = document.getElementById(errId);
     if(errEl) errEl.textContent = msg;
   }
 
-  ['cf-name','cf-email','cf-subject','cf-message'].forEach(id=>{
-    document.getElementById(id).addEventListener('input', ()=>{
+  ['cf-name','cf-email','cf-subject','cf-message'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', function(){
       document.getElementById(id).classList.remove('invalid');
     });
   });
 
   function validateContactForm(){
-    let ok = true;
-    const name    = document.getElementById('cf-name').value.trim();
-    const email   = document.getElementById('cf-email').value.trim();
-    const subject = document.getElementById('cf-subject').value.trim();
-    const message = document.getElementById('cf-message').value.trim();
-    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var ok = true;
+    var name    = document.getElementById('cf-name').value.trim();
+    var email   = document.getElementById('cf-email').value.trim();
+    var subject = document.getElementById('cf-subject').value.trim();
+    var message = document.getElementById('cf-message').value.trim();
+    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    setFieldError('cf-name','err-name', name ? '' : 'Name is required');
+    setFieldError('cf-name', 'err-name', name ? '' : 'Name is required');
     if(!name) ok = false;
 
-    if(!email){ setFieldError('cf-email','err-email','Email is required'); ok=false; }
-    else if(!emailRe.test(email)){ setFieldError('cf-email','err-email','Enter a valid email address'); ok=false; }
-    else setFieldError('cf-email','err-email','');
+    if(!email){
+      setFieldError('cf-email', 'err-email', 'Email is required');
+      ok = false;
+    } else if(!emailRe.test(email)){
+      setFieldError('cf-email', 'err-email', 'Enter a valid email address');
+      ok = false;
+    } else {
+      setFieldError('cf-email', 'err-email', '');
+    }
 
-    setFieldError('cf-subject','err-subject', subject ? '' : 'Subject is required');
+    setFieldError('cf-subject', 'err-subject', subject ? '' : 'Subject is required');
     if(!subject) ok = false;
 
-    setFieldError('cf-message','err-message', message ? '' : 'Message is required');
+    setFieldError('cf-message', 'err-message', message ? '' : 'Message is required');
     if(!message) ok = false;
 
     return ok;
   }
 
-  cform.addEventListener('submit', async (e)=>{
+  cform.addEventListener('submit', function(e){
     e.preventDefault();
     if(sending) return;
 
@@ -898,26 +946,40 @@ if(cform){
       return;
     }
 
+    if(!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === 'f381504a-ee72-4b10-a94b-8625e9b035fc'){
+      status.textContent = 'Contact form is not fully configured yet. A Web3Forms Access Key needs to be added in the code before this form can send messages.';
+      status.className = 'cform-status error';
+      console.warn('[Contact form] Missing Web3Forms Access Key. See WEB3FORMS_ACCESS_KEY near the top of the script.');
+      return;
+    }
+
     sending = true;
     submitBtn.disabled = true;
     btnText.textContent = 'Sending...';
 
-    const payload = {
+    var nameVal    = document.getElementById('cf-name').value.trim();
+    var emailVal   = document.getElementById('cf-email').value.trim();
+    var subjectVal = document.getElementById('cf-subject').value.trim();
+    var messageVal = document.getElementById('cf-message').value.trim();
+
+    var payload = {
       access_key: WEB3FORMS_ACCESS_KEY,
-      name: document.getElementById('cf-name').value.trim(),
-      email: document.getElementById('cf-email').value.trim(),
-      subject: document.getElementById('cf-subject').value.trim(),
-      message: document.getElementById('cf-message').value.trim(),
-      from_name: 'ahmedmansour.site — Contact Form'
+      subject: 'New Portfolio Contact: ' + subjectVal,
+      from_name: 'ahmedmansour.site Portfolio Contact Form',
+      replyto: emailVal,
+      Name: nameVal,
+      Email: emailVal,
+      Subject: subjectVal,
+      Message: messageVal
     };
 
-    try{
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type':'application/json', 'Accept':'application/json' },
-        body: JSON.stringify(payload)
-      });
-      const data = await res.json();
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json', 'Accept':'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(res){ return res.json(); })
+    .then(function(data){
       if(data.success){
         status.textContent = "Message sent successfully. I'll get back to you soon.";
         status.className = 'cform-status success';
@@ -925,14 +987,16 @@ if(cform){
       } else {
         throw new Error(data.message || 'Send failed');
       }
-    } catch(err){
+    })
+    .catch(function(err){
       status.textContent = 'Something went wrong. Please try again or contact me directly by email.';
       status.className = 'cform-status error';
-    } finally {
+    })
+    .finally(function(){
       sending = false;
       submitBtn.disabled = false;
       btnText.textContent = 'Send Message';
-    }
+    });
   });
 }
 </script>
