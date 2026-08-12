@@ -737,13 +737,7 @@
     </div>
   </div>
 </div>
-<form action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="f381504a-ee72-4b10-a94b-8625e9b035fc">
-  <input type="text" name="name" required>
-  <input type="email" name="email" required>
-  <textarea name="message" required></textarea>
-  <button type="submit">Submit Form</button>
-</form>
+
 <script>
 
 function openCvModal(){
@@ -884,7 +878,130 @@ document.querySelectorAll('.badge').forEach(function(b){
    real key is added, the form will show a clear configuration notice
    instead of silently failing.
    ══════════════════════════════════════════════════════════════════ */
+var WEB3FORMS_ACCESS_KEY = 'f381504a-ee72-4b10-a94b-8625e9b035fc';
 
+var cform = document.getElementById('contactForm');
+if(cform){
+  var submitBtn = document.getElementById('cformSubmit');
+  var btnText   = submitBtn.querySelector('.cform-btn-text');
+  var status    = document.getElementById('cformStatus');
+  var sending = false;
+
+  function setFieldError(inputId, errId, msg){
+    document.getElementById(inputId).classList.toggle('invalid', !!msg);
+    var errEl = document.getElementById(errId);
+    if(errEl) errEl.textContent = msg;
+  }
+
+  ['cf-name','cf-email','cf-subject','cf-message'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', function(){
+      document.getElementById(id).classList.remove('invalid');
+    });
+  });
+
+  function validateContactForm(){
+    var ok = true;
+    var name    = document.getElementById('cf-name').value.trim();
+    var email   = document.getElementById('cf-email').value.trim();
+    var subject = document.getElementById('cf-subject').value.trim();
+    var message = document.getElementById('cf-message').value.trim();
+    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    setFieldError('cf-name', 'err-name', name ? '' : 'Name is required');
+    if(!name) ok = false;
+
+    if(!email){
+      setFieldError('cf-email', 'err-email', 'Email is required');
+      ok = false;
+    } else if(!emailRe.test(email)){
+      setFieldError('cf-email', 'err-email', 'Enter a valid email address');
+      ok = false;
+    } else {
+      setFieldError('cf-email', 'err-email', '');
+    }
+
+    setFieldError('cf-subject', 'err-subject', subject ? '' : 'Subject is required');
+    if(!subject) ok = false;
+
+    setFieldError('cf-message', 'err-message', message ? '' : 'Message is required');
+    if(!message) ok = false;
+
+    return ok;
+  }
+
+  cform.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(sending) return;
+
+    status.textContent = '';
+    status.className = 'cform-status';
+
+    if(!validateContactForm()){
+      status.textContent = 'Please fix the highlighted fields.';
+      status.className = 'cform-status error';
+      return;
+    }
+
+    if(cform.botcheck && cform.botcheck.checked){
+      return;
+    }
+
+    if(!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === 'f381504a-ee72-4b10-a94b-8625e9b035fc'){
+      status.textContent = 'Contact form is not fully configured yet. A Web3Forms Access Key needs to be added in the code before this form can send messages.';
+      status.className = 'cform-status error';
+      console.warn('[Contact form] Missing Web3Forms Access Key. See WEB3FORMS_ACCESS_KEY near the top of the script.');
+      return;
+    }
+
+    sending = true;
+    submitBtn.disabled = true;
+    btnText.textContent = 'Sending...';
+
+    var nameVal    = document.getElementById('cf-name').value.trim();
+    var emailVal   = document.getElementById('cf-email').value.trim();
+    var subjectVal = document.getElementById('cf-subject').value.trim();
+    var messageVal = document.getElementById('cf-message').value.trim();
+
+    var payload = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: 'New Portfolio Contact: ' + subjectVal,
+      from_name: 'ahmedmansour.site Portfolio Contact Form',
+      replyto: emailVal,
+      Name: nameVal,
+      Email: emailVal,
+      Subject: subjectVal,
+      Message: messageVal
+    };
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json', 'Accept':'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(res){ return res.json(); })
+    .then(function(data){
+      if(data.success){
+        status.textContent = "Message sent successfully. I'll get back to you soon.";
+        status.className = 'cform-status success';
+        cform.reset();
+      } else {
+        throw new Error(data.message || 'Send failed');
+      }
+    })
+    .catch(function(err){
+      status.textContent = 'Something went wrong. Please try again or contact me directly by email.';
+      status.className = 'cform-status error';
+    })
+    .finally(function(){
+      sending = false;
+      submitBtn.disabled = false;
+      btnText.textContent = 'Send Message';
+    });
+  });
+}
+</script>
+</body>
+</html>
 </script>
 </body>
 </html>
