@@ -431,8 +431,8 @@
 </section>
 
 <div class="stats">
-  <div class="stat reveal"><div class="snum" data-target="500" data-suffix="+">0</div><div class="slbl">Problems Solved</div></div>
-  <div class="stat reveal"><div class="snum" data-target="50" data-suffix="+">0</div><div class="slbl">API Endpoints / Project</div></div>
+  <div class="stat reveal"><div class="snum" data-target="300" data-suffix="+">0</div><div class="slbl">Problems Solved</div></div>
+  <div class="stat reveal"><div class="snum" data-target="20" data-suffix="+">0</div><div class="slbl">API Endpoints / Project</div></div>
   <div class="stat reveal"><div class="snum" data-text="yes">2022–2023</div><div class="slbl">ICPC Qualifications</div></div>
   <div class="stat reveal"><div class="snum" data-text="yes">2025</div><div class="slbl">Computer Science Graduate</div></div>
 </div>
@@ -529,6 +529,15 @@
   <div class="eyebrow reveal">.NET Backend Projects</div>
   <h2 class="sec-title reveal" style="margin-bottom:14px">Featured Projects</h2>
   <p class="reveal" style="color:var(--muted);font-size:.87rem;max-width:580px;margin-bottom:36px;line-height:1.7">Backend engineering projects showcasing my .NET development skills — built with ASP.NET Core, EF Core, and modern API design.</p>
+  <div class="pcard reveal">
+      <span class="pbadge">INTERNSHIP · 2025</span>
+      <span class="pbadge"><a href="https://github.com/a7med255/CommunityBackEnd" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span>
+      <span class="pbadge"><a href="https://communityui.kgetechnologies.com/" target="_blank" rel="noopener noreferrer">Live UI ↗</a></span>
+      <span class="pbadge"><a href="https://communityapi.kgetechnologies.com/swagger/index.html" target="_blank" rel="noopener noreferrer">Live Swagger ↗</a></span>
+      <h3>Community Management System</h3>
+      <p>Developed a Community Management System with ASP.NET Core Web API, implementing authentication, authorization, community features, and API-driven functionality as part of my backend development internship.</p>
+      <div class="tags"><span class="tag">ASP.NET Core</span><span class="tag">Web API</span><span class="tag">EF Core</span><span class="tag">MySQL</span><span class="tag">JWT</span><span class="tag">RBAC</span><span class="tag">DBeaver</span><span class="tag">Serilog</span></div>
+    </div>
   <div class="pgrid">
     <div class="pcard reveal">
       <span class="pbadge"><a href="https://lungora.runasp.net/swagger/index.html" target="_blank" rel="noopener">LIVE · 2025</a></span>
@@ -551,12 +560,7 @@
       <p>Online laptop store supporting 1,000+ products with secure auth, product &amp; order management, SQL Views, and 30+ database tables managed with EF Core.</p>
       <div class="tags"><span class="tag">ASP.NET Core MVC</span><span class="tag">EF Core</span><span class="tag">SQL Server</span><span class="tag">Caching</span><span class="tag">ViewModels</span><span class="tag">DI</span></div>
     </div>
-    <div class="pcard reveal">
-      <span class="pbadge">INTERNSHIP · 2025</span>
-      <h3>Community Management API</h3>
-      <p>Built at KGE Technologies. JWT auth, social login, RBAC, events &amp; posts modules. Optimized APIs for performance, security, and stability.</p>
-      <div class="tags"><span class="tag">ASP.NET Core</span><span class="tag">JWT</span><span class="tag">MySQL</span><span class="tag">EF Core</span><span class="tag">RBAC</span><span class="tag">DBeaver</span><span class="tag">Serilog</span></div>
-    </div>
+    
   </div>
 </section>
 
@@ -872,13 +876,13 @@ document.querySelectorAll('.badge').forEach(function(b){
    ACTION REQUIRED:
    1. Go to https://web3forms.com and enter ahmedhamdymansour25@gmail.com
    2. You will receive a free Access Key by email — copy it.
-   3. Paste it below, replacing f381504a-ee72-4b10-a94b-8625e9b035fc.
+   3. Paste it below, replacing PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE.
    This key is NOT a secret — Web3Forms is designed for it to be visible
    in public frontend code (similar to a Formspree form ID). Until a
    real key is added, the form will show a clear configuration notice
    instead of silently failing.
    ══════════════════════════════════════════════════════════════════ */
-var WEB3FORMS_ACCESS_KEY = 'f381504a-ee72-4b10-a94b-8625e9b035fc';
+var WEB3FORMS_ACCESS_KEY = 'PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE';
 
 var cform = document.getElementById('contactForm');
 if(cform){
@@ -946,7 +950,7 @@ if(cform){
       return;
     }
 
-    if(!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === 'f381504a-ee72-4b10-a94b-8625e9b035fc'){
+    if(!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === 'PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE'){
       status.textContent = 'Contact form is not fully configured yet. A Web3Forms Access Key needs to be added in the code before this form can send messages.';
       status.className = 'cform-status error';
       console.warn('[Contact form] Missing Web3Forms Access Key. See WEB3FORMS_ACCESS_KEY near the top of the script.');
@@ -962,15 +966,23 @@ if(cform){
     var subjectVal = document.getElementById('cf-subject').value.trim();
     var messageVal = document.getElementById('cf-message').value.trim();
 
+    var emailBody =
+      'New Portfolio Contact\n\n' +
+      'Name: ' + nameVal + '\n' +
+      'Email: ' + emailVal + '\n' +
+      'Subject: ' + subjectVal + '\n\n' +
+      'Message:\n' + messageVal + '\n\n' +
+      'Website:\nahmedmansour.site';
+
     var payload = {
       access_key: WEB3FORMS_ACCESS_KEY,
-      subject: 'New Portfolio Contact: ' + subjectVal,
-      from_name: 'ahmedmansour.site Portfolio Contact Form',
+      subject: 'Portfolio Contact: ' + subjectVal,
+      from_name: 'Ahmed Hamdy Mansour Portfolio',
+      name: nameVal,
+      email: emailVal,
       replyto: emailVal,
-      Name: nameVal,
-      Email: emailVal,
-      Subject: subjectVal,
-      Message: messageVal
+      message: emailBody,
+      botcheck: cform.botcheck ? cform.botcheck.checked : false
     };
 
     fetch('https://api.web3forms.com/submit', {
@@ -999,9 +1011,6 @@ if(cform){
     });
   });
 }
-</script>
-</body>
-</html>
 </script>
 </body>
 </html>
