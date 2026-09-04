@@ -529,7 +529,9 @@
   <div class="eyebrow reveal">.NET Backend Projects</div>
   <h2 class="sec-title reveal" style="margin-bottom:14px">Featured Projects</h2>
   <p class="reveal" style="color:var(--muted);font-size:.87rem;max-width:580px;margin-bottom:36px;line-height:1.7">Backend engineering projects showcasing my .NET development skills — built with ASP.NET Core, EF Core, and modern API design.</p>
-  <div class="pcard reveal">
+  
+  <div class="pgrid">
+     <div class="pcard reveal">
       <span class="pbadge">INTERNSHIP · 2025</span>
       <span class="pbadge"><a href="https://github.com/a7med255/CommunityBackEnd" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span>
       <span class="pbadge"><a href="https://communityui.kgetechnologies.com/" target="_blank" rel="noopener noreferrer">Live UI ↗</a></span>
@@ -538,7 +540,6 @@
       <p>Developed a Community Management System with ASP.NET Core Web API, implementing authentication, authorization, community features, and API-driven functionality as part of my backend development internship.</p>
       <div class="tags"><span class="tag">ASP.NET Core</span><span class="tag">Web API</span><span class="tag">EF Core</span><span class="tag">MySQL</span><span class="tag">JWT</span><span class="tag">RBAC</span><span class="tag">DBeaver</span><span class="tag">Serilog</span></div>
     </div>
-  <div class="pgrid">
     <div class="pcard reveal">
       <span class="pbadge"><a href="https://lungora.runasp.net/swagger/index.html" target="_blank" rel="noopener">LIVE · 2025</a></span>
       <span class="pbadge"><a href="https://github.com/a7med255/Lungora" target="_blank" rel="noopener">GitHub ↗</a></span>
@@ -560,6 +561,7 @@
       <p>Online laptop store supporting 1,000+ products with secure auth, product &amp; order management, SQL Views, and 30+ database tables managed with EF Core.</p>
       <div class="tags"><span class="tag">ASP.NET Core MVC</span><span class="tag">EF Core</span><span class="tag">SQL Server</span><span class="tag">Caching</span><span class="tag">ViewModels</span><span class="tag">DI</span></div>
     </div>
+   
     
   </div>
 </section>
@@ -882,7 +884,7 @@ document.querySelectorAll('.badge').forEach(function(b){
    real key is added, the form will show a clear configuration notice
    instead of silently failing.
    ══════════════════════════════════════════════════════════════════ */
-var WEB3FORMS_ACCESS_KEY = 'PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE';
+var WEB3FORMS_ACCESS_KEY = 'f381504a-ee72-4b10-a94b-8625e9b035fc';
 
 var cform = document.getElementById('contactForm');
 if(cform){
@@ -950,7 +952,7 @@ if(cform){
       return;
     }
 
-    if(!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === 'PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE'){
+    if(!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === 'f381504a-ee72-4b10-a94b-8625e9b035fc'){
       status.textContent = 'Contact form is not fully configured yet. A Web3Forms Access Key needs to be added in the code before this form can send messages.';
       status.className = 'cform-status error';
       console.warn('[Contact form] Missing Web3Forms Access Key. See WEB3FORMS_ACCESS_KEY near the top of the script.');
