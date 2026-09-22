@@ -884,7 +884,7 @@ document.querySelectorAll('.badge').forEach(function(b){
    real key is added, the form will show a clear configuration notice
    instead of silently failing.
    ══════════════════════════════════════════════════════════════════ */
-var WEB3FORMS_ACCESS_KEY = '8b704a9d-8493-46fa-a7c1-9a4e2dc9e1c1';
+var WEB3FORMS_ACCESS_KEY = 'c63d2ebd-c1d6-4220-9a73-a6a2eefb26b8';
 
 var cform = document.getElementById('contactForm');
 if(cform){
@@ -952,7 +952,7 @@ if(cform){
       return;
     }
 
-    if(!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === '8b704a9d-8493-46fa-a7c1-9a4e2dc9e1c1'){
+    if(!WEB3FORMS_ACCESS_KEY ){
       status.textContent = 'Contact form is not fully configured yet. A Web3Forms Access Key needs to be added in the code before this form can send messages.';
       status.className = 'cform-status error';
       console.warn('[Contact form] Missing Web3Forms Access Key. See WEB3FORMS_ACCESS_KEY near the top of the script.');
